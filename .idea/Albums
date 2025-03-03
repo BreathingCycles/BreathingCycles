@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Cycles - Albums</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2b6777;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+        }
+        .container {
+            padding: 40px;
+        }
+        .album {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .album a {
+            text-decoration: none;
+            color: #2b6777;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2b6777;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Breathing Cycles - Albums
+    </header>
+    <div class="container">
+        <h2>Explore Breathing Cycles Albums</h2>
+        <p>Click on an album to listen on Spotify.</p>
+
+        <div class="album">
+            <h3>Vagus Breathing</h3>
+            <a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A?si=I8x-pjxCSfGT-m4mLSBWOg" target="_blank">Listen on Spotify</a>
+        </div>
+
+        <div class="album">
+            <h3>Slow Breathig Meditation</h3>
+            <a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I?si=ci03XYu-Ta2iIqLKdO908g" target="_blank">Listen on Spotify</a>
+        </div>
+
+        <div class="album">
+            <h3>BREASE</h3>
+            <a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA?si=DcrxoETHQwacxbvKCoXtZA" target="_blank">Listen on Spotify</a>
+        </div>
+
+        <div class="album">
+            <h3>Inhale Hold Exhale</h3>
+            <a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4?si=OI-CYcb4SbS6jkSUSwzxbQ" target="_blank">Listen on Spotify</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Breathing Cycles | <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO?si=xo_wBCx0QcOSGJNNrNuXNQ" style="color:white;">Spotify</a><" <a href="mailto:oyvindblikstad@gmail.com" style="color:white;">Contact</a>
+    </footer>
+</body>
+</html>
