@@ -17,23 +17,6 @@ This website provides access to various playlists and albums designed to support
    - **Enhanced Sleep Quality:** Breathing at a slow pace helps regulate the nervous system, making it easier to fall asleep and stay asleep.
    - **Boosted Immune System:** Proper breathing supports oxygen flow, which aids in cell regeneration and overall immune response.
 
-## 📂 Project Structure
-- `index.html` - The main webpage with playlists and information.
-- `styles.css` - Styles for a calm and minimalist user experience.
-- `README.md` - This file with project information.
-
-## 🌐 Deployment with GitHub Pages
-The website is hosted for free using **GitHub Pages**. To deploy:
-1. **Push the files to the `main` branch** of this repository.
-2. Enable **GitHub Pages** in the repository settings.
-3. The website will be available at:
-   ```
-   https://breathingcycles.github.io/breathing-cycles/
-   ```
-4. For a custom domain, add a CNAME record in your DNS settings.
-
-## 💡 Contribute
-Have suggestions or want to contribute? Feel free to submit a pull request or reach out!
 
 ## 📬 Contact
 For inquiries or collaborations, reach out via:
