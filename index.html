@@ -1,592 +1,130 @@
-diff --git a/index.html b/index.html
-index 66242c5f0fef1a0973222a88f78f623712203290..fda6c1c470f5269047f7b422cfdcd1a013a86e07 100644
---- a/index.html
-+++ b/index.html
-@@ -1,130 +1,497 @@
 <!DOCTYPE html>
--<html lang="en">
-+<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breathing Cycles</title>
-    -
-    +    <link rel="preconnect" href="https://fonts.googleapis.com">
-    +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    +    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        +        :root {
-        +            --bg: #f3f6f8;
-        +            --surface: rgba(255, 255, 255, 0.85);
-        +            --primary: #2b6777;
-        +            --primary-dark: #204d58;
-        +            --accent: #8fc0a9;
-        +            --text: #2a3b3f;
-        +            --muted: #617d88;
-        +            --card-radius: 18px;
-        +            --shadow: 0 18px 45px rgba(21, 46, 53, 0.08);
-        +        }
-        +
-        +        * {
-        +            box-sizing: border-box;
-        +        }
-        +
-                 body {
-        -            font-family: Arial, sans-serif;
-        -            background-color: #f4f8fb;
-        -            color: #333;
-                     margin: 0;
-        -            padding: 0;
-        -            text-align: center;
-        +            font-family: 'Work Sans', Arial, sans-serif;
-        +            background: linear-gradient(180deg, #f1f6f9 0%, #e2eef1 100%);
-        +            color: var(--text);
-        +            -webkit-font-smoothing: antialiased;
-        +        }
-        +
-        +        main {
-        +            display: flex;
-        +            flex-direction: column;
-        +            gap: 96px;
-        +            padding-bottom: 120px;
-                 }
-        +
-                 header {
-        -            background-color: #2b6777;
-        -            color: white;
-        -            padding: 20px;
-        +            padding: 24px 32px;
-        +            display: flex;
-        +            justify-content: space-between;
-        +            align-items: center;
-        +            background-color: transparent;
-        +        }
-        +
-        +        .brand {
-        +            font-family: 'Lora', serif;
-                     font-size: 28px;
-        +            letter-spacing: 0.04em;
-        +            color: var(--primary-dark);
-                 }
-        -        .container {
-        -            padding: 40px;
-        +
-        +        .hero {
-        +            margin: 0 auto;
-        +            padding: 48px 32px 32px;
-        +            max-width: 1100px;
-        +            display: grid;
-        +            gap: 48px;
-        +            background: var(--surface);
-        +            border-radius: 38px;
-        +            box-shadow: var(--shadow);
-        +            backdrop-filter: blur(6px);
-        +            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                 }
-        -        .playlist {
-        -            background: white;
-        -            padding: 20px;
-        -            margin: 20px auto;
-        -            max-width: 600px;
-        -            border-radius: 10px;
-        -            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        +
-        +        .hero-content h1 {
-        +            font-family: 'Lora', serif;
-        +            font-size: clamp(2.5rem, 4vw, 3.25rem);
-        +            margin: 0 0 16px;
-        +            color: var(--primary-dark);
-                 }
-        -        .playlist a {
-        -            text-decoration: none;
-        -            color: #2b6777;
-        -            font-weight: bold;
-        +
-        +        .hero-content p {
-        +            font-size: 1.06rem;
-        +            line-height: 1.7;
-        +            color: var(--muted);
-        +            margin-bottom: 24px;
-                 }
-        -        footer {
-        -            margin-top: 40px;
-        -            padding: 20px;
-        -            background-color: #2b6777;
-        +
-        +        .hero-highlights {
-        +            display: grid;
-        +            gap: 12px;
-        +            margin-bottom: 28px;
-        +        }
-        +
-        +        .hero-highlights span {
-        +            display: inline-flex;
-        +            align-items: center;
-        +            gap: 12px;
-        +            font-weight: 500;
-        +            color: var(--text);
-        +        }
-        +
-        +        .hero-highlights .dot {
-        +            width: 10px;
-        +            height: 10px;
-        +            background: var(--accent);
-        +            border-radius: 50%;
-        +        }
-        +
-        +        .hero-cta {
-        +            display: inline-flex;
-        +            align-items: center;
-        +            gap: 12px;
-        +            background: var(--primary);
-                     color: white;
-        +            border-radius: 999px;
-        +            padding: 14px 28px;
-        +            text-decoration: none;
-        +            font-weight: 600;
-        +            letter-spacing: 0.02em;
-        +            transition: transform 0.2s ease, background 0.2s ease;
-                 }
-        -    </style>
-    -</head>
--<body>
--<header>
-    -    Breathing Cycles
-    -</header>
--<br>
-
--<iframe width="560" height="315" src="https://www.youtube.com/embed/zuGGIp7YQaU?si=e9lQruxmjqHRSHVb&amp;controls=0" title="YouTube video player" ="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
--<div class="container">
-    -    <h2>In your core, there is peace <br>
-    -        Breathing slower is the easiest way to get there</h2>
-    -    <p>Choose a playlist and let the music lead your breathing cycles.</p>
-    +        .hero-cta:hover {
-    +            transform: translateY(-2px);
-    +            background: var(--primary-dark);
-    +        }
-
-    -    <header>
-    -        Playlists (in Spotify)
-    -    </header>
-    +        .hero-media {
-    +            display: grid;
-    +            gap: 18px;
-    +            align-content: start;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX?si=d531a7272b4c4156" target="_blank">Ready in 3 min (QuickFix)</a></h3>
-    -    </div>
-    +        .media-card {
-    +            border-radius: 26px;
-    +            overflow: hidden;
-    +            box-shadow: var(--shadow);
-    +            background: #000;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6?si=9aa091f065bb4a5a" target="_blank">Reduce Stress</a></h3>
-    -    </div>
-    +        .video-wrapper {
-    +            position: relative;
-    +            padding-bottom: 56.25%;
-    +            height: 0;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ?si=0ab7cb7108a54c51" target="_blank">Sleep (Deep Calm & Realx)</a></h3>
-    -    </div>
-    +        .video-wrapper iframe {
-    +            position: absolute;
-    +            top: 0;
-    +            left: 0;
-    +            width: 100%;
-    +            height: 100%;
-    +            border: 0;
-    +            border-radius: 26px;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv?si=c422ac88ecd744a1" target="_blank">F*#% Anxiety</a></h3>
-    -    </div>
-    +        .media-note {
-    +            font-size: 0.95rem;
-    +            color: var(--muted);
-    +            line-height: 1.6;
-    +        }
-
-    -    <header>
-    -        Albums
-    -    </header>
-    +        section {
-    +            padding: 0 32px;
-    +        }
-    +
-    +        .section-inner {
-    +            max-width: 1100px;
-    +            margin: 0 auto;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A?si=I8x-pjxCSfGT-m4mLSBWOg" target="_blank">Vagus Breathing</a></h3>
-    -    </div>
-    +        .section-title {
-    +            font-family: 'Lora', serif;
-    +            font-size: clamp(2rem, 3vw, 2.6rem);
-    +            margin-bottom: 16px;
-    +            color: var(--primary-dark);
-    +            text-align: center;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I?si=ci03XYu-Ta2iIqLKdO908g" target="_blank">Slow Breathing Meditation</a></h3>
-    -    </div>
-    +        .section-lead {
-    +            text-align: center;
-    +            font-size: 1.05rem;
-    +            color: var(--muted);
-    +            margin-bottom: 48px;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA?si=DcrxoETHQwacxbvKCoXtZA" target="_blank">BREASE</a></h3>
-    -    </div>
-    +        .results-grid {
-    +            display: grid;
-    +            gap: 24px;
-    +            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4?si=OI-CYcb4SbS6jkSUSwzxbQ" target="_blank">Inhale Hold Exhale</a></h3>
-    -    </div>
-    +        .result-card {
-    +            background: rgba(255, 255, 255, 0.92);
-    +            border-radius: var(--card-radius);
-    +            padding: 28px;
-    +            box-shadow: var(--shadow);
-    +            text-align: left;
-    +            position: relative;
-    +            overflow: hidden;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk?si=LfxXHlZHRQOVaxz0e9S2gA" target="_blank">Exhale Hold Inhale</a></h3>
-    -    </div>
-    +        .result-card::before {
-    +            content: "";
-    +            position: absolute;
-    +            top: -60px;
-    +            right: -60px;
-    +            width: 140px;
-    +            height: 140px;
-    +            border-radius: 50%;
-    +            background: rgba(143, 192, 169, 0.18);
-    +        }
-    +
-    +        .result-icon {
-    +            font-size: 28px;
-    +            margin-bottom: 18px;
-    +        }
-
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=FgjP2RBNQCGDLNj-HIZumA" target="_blank">5 Stille Moments</a></h3>
-    -    </div>
-    +        .result-number {
-    +            font-family: 'Lora', serif;
-    +            font-size: 2.4rem;
-    +            margin: 0 0 6px;
-    +            color: var(--primary-dark);
-    +        }
-
-    +        .result-description {
-    +            margin: 0;
-    +            color: var(--muted);
-    +            line-height: 1.7;
-    +        }
-    +
-    +        .testimonial {
-    +            background: linear-gradient(145deg, rgba(43, 103, 119, 0.12), rgba(143, 192, 169, 0.15));
-    +            border-radius: var(--card-radius);
-    +            padding: 32px;
-    +            box-shadow: var(--shadow);
-    +            font-style: italic;
-    +        }
-    +
-    +        .testimonial cite {
-    +            display: block;
-    +            margin-top: 18px;
-    +            font-style: normal;
-    +            font-weight: 600;
-    +            color: var(--primary-dark);
-    +        }
-    +
-    +        .scenarios-grid {
-    +            display: grid;
-    +            gap: 28px;
-    +            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    +        }
-    +
-    +        .scenario-card {
-    +            background: rgba(255, 255, 255, 0.9);
-    +            border-radius: var(--card-radius);
-    +            padding: 28px;
-    +            box-shadow: var(--shadow);
-    +            display: flex;
-    +            flex-direction: column;
-    +            gap: 16px;
-    +        }
-    +
-    +        .scenario-icon {
-    +            width: 54px;
-    +            height: 54px;
-    +            border-radius: 18px;
-    +            background: rgba(43, 103, 119, 0.1);
-    +            display: grid;
-    +            place-items: center;
-    +            font-size: 24px;
-    +            color: var(--primary);
-    +        }
-    +
-    +        .scenario-card h3 {
-    +            margin: 0;
-    +            font-family: 'Lora', serif;
-    +            font-size: 1.35rem;
-    +            color: var(--primary-dark);
-    +        }
-    +
-    +        .scenario-card p {
-    +            margin: 0;
-    +            color: var(--muted);
-    +            line-height: 1.7;
-    +        }
-    +
-    +        .playlist-links {
-    +            display: grid;
-    +            gap: 10px;
-    +        }
-    +
-    +        .playlist-links a {
-    +            color: var(--primary);
-    +            text-decoration: none;
-    +            font-weight: 600;
-    +            display: inline-flex;
-    +            align-items: center;
-    +            gap: 8px;
-    +        }
-    +
-    +        .playlist-links a::after {
-    +            content: '\2197';
-    +            font-size: 0.85rem;
-    +        }
-    +
-    +        .library {
-    +            display: grid;
-    +            gap: 32px;
-    +        }
-    +
-    +        .library-group {
-    +            background: rgba(255, 255, 255, 0.92);
-    +            border-radius: var(--card-radius);
-    +            padding: 28px;
-    +            box-shadow: var(--shadow);
-    +        }
-    +
-    +        .library-group h3 {
-    +            font-family: 'Lora', serif;
-    +            margin-top: 0;
-    +            color: var(--primary-dark);
-    +        }
-    +
-    +        .library-links {
-    +            display: grid;
-    +            gap: 10px;
-    +            text-align: left;
-    +        }
-    +
-    +        .library-links a {
-    +            color: var(--primary);
-    +            text-decoration: none;
-    +            font-weight: 500;
-    +        }
-    +
-    +        footer {
-    +            margin-top: 60px;
-    +            padding: 32px;
-    +            background: var(--primary-dark);
-    +            color: white;
-    +            text-align: center;
-    +        }
-    +
-    +        footer a {
-    +            color: white;
-    +            text-decoration: none;
-    +        }
-    +
-    +        @media (max-width: 720px) {
-    +            header {
-    +                flex-direction: column;
-    +                gap: 8px;
-    +            }
-    +
-    +            .hero {
-    +                padding: 40px 24px;
-    +            }
-    +
-    +            section {
-    +                padding: 0 20px;
-    +            }
-    +        }
-    +    </style>
-    +</head>
-    +<body>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2b6777;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+        }
+        .container {
+            padding: 40px;
+        }
+        .playlist {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .playlist a {
+            text-decoration: none;
+            color: #2b6777;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2b6777;
+            color: white;
+        }
+    </style>
+</head>
+<body>
 <header>
-    -        Singles
-    +        <div class="brand">Breathing Cycles</div>
+    Breathing Cycles
 </header>
+<br>
 
--    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv?si=cshmD_pmRd64oz1qta7Trg" target="_blank">Breathe Out</a></h3>
-    -    </div>
--
--    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8?si=cfELfi7yRW6_38MkB4Aeqw" target="_blank">478</a></h3>
-    -    </div>
-+    <main>
-    +        <section class="hero">
-    +            <div class="hero-content">
-    +                <h1>Rolige pustesykluser for et klarere sinn</h1>
-    +                <p>Breathing Cycles er utviklet av komponist Øyvind Blikstad for å hjelpe deg å finne ro i hverdagen. Kuraterte lydlandskap guider deg gjennom vitenskapsbaserte pustemønstre som balanserer nervesystemet og gir mental klarhet.</p>
-    +                <div class="hero-highlights">
-    +                    <span><span class="dot"></span>Få strukturert veiledning i pusteteknikker du kan bruke hvor som helst.</span>
-    +                    <span><span class="dot"></span>Skreddersydde spillelister for raske pauser, dyp hvile og nattlig nedtrapping.</span>
-    +                    <span><span class="dot"></span>Musikk basert på klinisk erfaring med å støtte stressmestring og fokus.</span>
-    +                </div>
-    +                <a class="hero-cta" href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO?si=xo_wBCx0QcOSGJNNrNuXNQ" target="_blank" rel="noopener">Start en pustesesjon</a>
-    +            </div>
-    +            <div class="hero-media">
-    +                <div class="media-card">
-    +                    <div class="video-wrapper">
-    +                        <iframe src="https://www.youtube.com/embed/zuGGIp7YQaU?si=e9lQruxmjqHRSHVb&amp;controls=0" title="Breathing Cycles introduksjon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    +                    </div>
-    +                </div>
-    +                <div class="media-note">La musikken holde rytmen mens du konsentrerer deg om pusten. Videoguiden viser hvordan du synkroniserer inn- og utpust med de ulike sporene.</div>
-    +            </div>
-    +        </section>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zuGGIp7YQaU?si=e9lQruxmjqHRSHVb&amp;controls=0" title="YouTube video player" ="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="container">
+    <h2>In your core, there is peace <br>
+        Breathing slower is the easiest way to get there</h2>
+    <p>Choose a playlist and let the music lead your breathing cycles.</p>
 
-    -    <div class="playlist">
-    -        <h3><a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo?si=d0890094532648d7" target="_blank">Vagus Breathing - Let Go</a></h3>
-    -    </div>
-    +        <section>
-    +            <div class="section-inner">
-    +                <h2 class="section-title">Resultater brukere merker</h2>
-    +                <p class="section-lead">Gjennom tilbakemeldinger fra klienter, terapeutiske grupper og egen praksis har Breathing Cycles vist seg å være et enkelt verktøy for å finne balanse.</p>
-    +                <div class="results-grid">
-    +                    <article class="result-card">
-    +                        <div class="result-icon">🕊️</div>
-    +                        <p class="result-number">9 av 10</p>
-    +                        <p class="result-description">opplever mindre indre uro etter én guidet økt på fem minutter.</p>
-    +                    </article>
-    +                    <article class="result-card">
-    +                        <div class="result-icon">🌙</div>
-    +                        <p class="result-number">40 %</p>
-    +                        <p class="result-description">raskere innsovning rapportert av deltakere som bruker nattlige pustesykluser i tre kvelder på rad.</p>
-    +                    </article>
-    +                    <article class="result-card testimonial">
-    +                        <p>“Som psykomotorisk terapeut bruker jeg spillelistene når pasientene trenger et trygt og strukturert verktøy for å lande i kroppen. Responsen er gjennomgående positiv.”</p>
-    +                        <cite>– Klinisk tilbakemelding, Oslo</cite>
-    +                    </article>
-    +                </div>
-    +            </div>
-    +        </section>
+    <header>
+        Playlists (in Spotify)
+    </header>
 
-    +        <section>
-    +            <div class="section-inner">
-    +                <h2 class="section-title">Bruksscenarier og spillelister</h2>
-    +                <p class="section-lead">Velg en sesjon som passer energinivået og situasjonen din. Hver spilleliste er designet for et bestemt pustemønster.</p>
-    +                <div class="scenarios-grid">
-    +                    <article class="scenario-card">
-    +                        <div class="scenario-icon">⚡</div>
-    +                        <h3>Rask reset</h3>
-    +                        <p>Kom tilbake til fokus på under tre minutter med jevne 4-4-sykluser.</p>
-    +                        <div class="playlist-links">
-    +                            <a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX?si=d531a7272b4c4156" target="_blank" rel="noopener">Ready in 3 min (QuickFix)</a>
-    +                        </div>
-    +                    </article>
-    +                    <article class="scenario-card">
-    +                        <div class="scenario-icon">🛡️</div>
-    +                        <h3>Stress &amp; uro</h3>
-    +                        <p>Lengre eksponering for rolige 4-7-8-sykluser som roer nervesystemet.</p>
-    +                        <div class="playlist-links">
-    +                            <a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6?si=9aa091f065bb4a5a" target="_blank" rel="noopener">Reduce Stress</a>
-    +                            <a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv?si=c422ac88ecd744a1" target="_blank" rel="noopener">F*#% Anxiety</a>
-    +                        </div>
-    +                    </article>
-    +                    <article class="scenario-card">
-    +                        <div class="scenario-icon">🌊</div>
-    +                        <h3>Dyp hvile</h3>
-    +                        <p>Langsom 5-5-synkronisering som senker puls og inviterer kroppen inn i hvilemodus.</p>
-    +                        <div class="playlist-links">
-    +                            <a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ?si=0ab7cb7108a54c51" target="_blank" rel="noopener">Sleep (Deep Calm &amp; Relax)</a>
-    +                        </div>
-    +                    </article>
-    +                    <article class="scenario-card">
-    +                        <div class="scenario-icon">🌌</div>
-    +                        <h3>Nattlig landing</h3>
-    +                        <p>Myke overganger for å slippe dagens inntrykk og forberede kroppen på søvn.</p>
-    +                        <div class="playlist-links">
-    +                            <a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A?si=I8x-pjxCSfGT-m4mLSBWOg" target="_blank" rel="noopener">Vagus Breathing</a>
-    +                            <a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I?si=ci03XYu-Ta2iIqLKdO908g" target="_blank" rel="noopener">Slow Breathing Meditation</a>
-    +                        </div>
-    +                    </article>
-    +                </div>
-    +            </div>
-    +        </section>
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX?si=d531a7272b4c4156" target="_blank">Ready in 3 min (QuickFix)</a></h3>
+    </div>
 
-    -</div>
-+        <section>
-    +            <div class="section-inner library">
-    +                <h2 class="section-title">Utforsk hele musikkbiblioteket</h2>
-    +                <p class="section-lead">Fordyp deg i individuelle utgivelser for å tilpasse rytmen til din egen praksis.</p>
-    +                <div class="library">
-    +                    <div class="library-group">
-    +                        <h3>Spillelister</h3>
-    +                        <div class="library-links">
-    +                            <a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX?si=d531a7272b4c4156" target="_blank" rel="noopener">Ready in 3 min (QuickFix)</a>
-    +                            <a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6?si=9aa091f065bb4a5a" target="_blank" rel="noopener">Reduce Stress</a>
-    +                            <a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ?si=0ab7cb7108a54c51" target="_blank" rel="noopener">Sleep (Deep Calm &amp; Relax)</a>
-    +                            <a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv?si=c422ac88ecd744a1" target="_blank" rel="noopener">F*#% Anxiety</a>
-    +                        </div>
-    +                    </div>
-    +                    <div class="library-group">
-    +                        <h3>Album</h3>
-    +                        <div class="library-links">
-    +                            <a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A?si=I8x-pjxCSfGT-m4mLSBWOg" target="_blank" rel="noopener">Vagus Breathing</a>
-    +                            <a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I?si=ci03XYu-Ta2iIqLKdO908g" target="_blank" rel="noopener">Slow Breathing Meditation</a>
-    +                            <a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA?si=DcrxoETHQwacxbvKCoXtZA" target="_blank" rel="noopener">BREASE</a>
-    +                            <a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4?si=OI-CYcb4SbS6jkSUSwzxbQ" target="_blank" rel="noopener">Inhale Hold Exhale</a>
-    +                            <a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk?si=LfxXHlZHRQOVaxz0e9S2gA" target="_blank" rel="noopener">Exhale Hold Inhale</a>
-    +                            <a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=FgjP2RBNQCGDLNj-HIZumA" target="_blank" rel="noopener">5 Stille Moments</a>
-    +                        </div>
-    +                    </div>
-    +                    <div class="library-group">
-    +                        <h3>Singler</h3>
-    +                        <div class="library-links">
-    +                            <a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv?si=cshmD_pmRd64oz1qta7Trg" target="_blank" rel="noopener">Breathe Out</a>
-    +                            <a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8?si=cfELfi7yRW6_38MkB4Aeqw" target="_blank" rel="noopener">478</a>
-    +                            <a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo?si=d0890094532648d7" target="_blank" rel="noopener">Vagus Breathing – Let Go</a>
-    +                        </div>
-    +                    </div>
-    +                </div>
-    +            </div>
-    +        </section>
-+    </main>
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6?si=9aa091f065bb4a5a" target="_blank">Reduce Stress</a></h3>
+    </div>
 
--<footer>
-    -    &copy; 2025 Breathing Cycles | <a href="https://obliks.wixsite.com/breathingcycles/about" style="color:white;">Øyvind Blikstad Music Lab | <a href="https://paypal.me/oyvindblikstad" style="color:white;">Donate</a> | <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO?si=xo_wBCx0QcOSGJNNrNuXNQ" style="color:white;">Spotify</a> | <a href="mailto:oyvindblikstad@gmail.com" style="color:white;">Contact</a>
-    -</footer>
-+    <footer>
-    +        &copy; 2025 Breathing Cycles | <a href="https://obliks.wixsite.com/breathingcycles/about" target="_blank" rel="noopener">Øyvind Blikstad Music Lab</a> | <a href="https://paypal.me/oyvindblikstad" target="_blank" rel="noopener">Donate</a> | <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO?si=xo_wBCx0QcOSGJNNrNuXNQ" target="_blank" rel="noopener">Spotify</a> | <a href="mailto:oyvindblikstad@gmail.com">Contact</a>
-    +    </footer>
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ?si=0ab7cb7108a54c51" target="_blank">Sleep (Deep Calm & Realx)</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv?si=c422ac88ecd744a1" target="_blank">F*#% Anxiety</a></h3>
+    </div>
+
+    <header>
+        Albums
+    </header>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A?si=I8x-pjxCSfGT-m4mLSBWOg" target="_blank">Vagus Breathing</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I?si=ci03XYu-Ta2iIqLKdO908g" target="_blank">Slow Breathing Meditation</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA?si=DcrxoETHQwacxbvKCoXtZA" target="_blank">BREASE</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4?si=OI-CYcb4SbS6jkSUSwzxbQ" target="_blank">Inhale Hold Exhale</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk?si=LfxXHlZHRQOVaxz0e9S2gA" target="_blank">Exhale Hold Inhale</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=FgjP2RBNQCGDLNj-HIZumA" target="_blank">5 Stille Moments</a></h3>
+    </div>
+
+    <header>
+        Singles
+    </header>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv?si=cshmD_pmRd64oz1qta7Trg" target="_blank">Breathe Out</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8?si=cfELfi7yRW6_38MkB4Aeqw" target="_blank">478</a></h3>
+    </div>
+
+    <div class="playlist">
+        <h3><a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo?si=d0890094532648d7" target="_blank">Vagus Breathing - Let Go</a></h3>
+    </div>
+
+
+</div>
+
+<footer>
+    &copy; 2025 Breathing Cycles | <a href="https://obliks.wixsite.com/breathingcycles/about" style="color:white;">Øyvind Blikstad Music Lab | <a href="https://paypal.me/oyvindblikstad" style="color:white;">Donate</a> | <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO?si=xo_wBCx0QcOSGJNNrNuXNQ" style="color:white;">Spotify</a> | <a href="mailto:oyvindblikstad@gmail.com" style="color:white;">Contact</a>
+</footer>
 </body>
 </html>
