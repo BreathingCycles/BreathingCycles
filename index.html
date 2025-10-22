@@ -181,6 +181,20 @@ Slow down your breath, activate the vagus nerve, and find calm through rhythm an
         @media (max-width:720px){
           .section{padding:64px 18px}
           .nav{flex-direction:column;align-items:flex-start}
+         /* Øker luft mellom kortene i video-seksjonen */
+#livsmestring .cards {
+  display: grid;
+  gap: 24px; /* eller 32px for enda mer luft */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Sikrer at videoene har jevn luft mot bunnen */
+#livsmestring .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
         }
     </style>
 </head>
@@ -502,7 +516,6 @@ Slow down your breath, activate the vagus nerve, and find calm through rhythm an
           En varm og ærlig film om hvordan vi kan møte sterke følelser med pust, refleksjon og forståelse – sammen med andre.
         </p>
       </div>
-
       <!-- Video 3: Breathing Cycles musikkvideo -->
       <div class="card">
         <h3>Breathing Cycles – musikkvideo</h3>
@@ -604,60 +617,6 @@ Start med et tydelig mål – rask regulering, stressreduksjon eller søvn. Velg
     </section>
 
 </main>
-<!-- SEKJSON: Forskning og kilder -->
-<section class="section light" id="research">
-  <div class="container">
-    <h2>Forskning og kilder</h2>
-    <p class="lead">
-      Pustemusikken i Breathing Cycles bygger på forskning innen nevrofysiologi, psykologi og musikkterapi. 
-      Her er et utvalg studier som beskriver hvordan langsom, kontrollert pust påvirker vagusnerven, 
-      reduserer stress og hjelper kroppen tilbake i balanse.
-    </p>
-
-    <ul style="line-height: 1.8;">
-      <li>
-        <a href="https://doi.org/10.1016/j.biopsycho.2018.11.008" target="_blank" rel="noopener">
-          Gerritsen, R.J. & Band, G.P. (2018). <em>Breath of life: The respiratory vagal stimulation model of contemplative activity.</em> Biological Psychology, 149, 1–15.
-        </a>
-      </li>
-      <li>
-        <a href="https://doi.org/10.1016/j.biopsycho.2010.05.010" target="_blank" rel="noopener">
-          Lehrer, P.M. & Gevirtz, R. (2014). <em>Heart rate variability biofeedback: How and why does it work?</em> Frontiers in Psychology, 5, 756.
-        </a>
-      </li>
-      <li>
-        <a href="https://doi.org/10.1016/j.psychres.2017.02.015" target="_blank" rel="noopener">
-          Perciavalle, V. et al. (2017). <em>The role of deep breathing on stress.</em> Psychiatria Danubina, 29(Suppl 3), 473–478.
-        </a>
-      </li>
-      <li>
-        <a href="https://doi.org/10.3389/fpsyg.2020.570963" target="_blank" rel="noopener">
-          Zaccaro, A. et al. (2020). <em>How breath-control can change your life: A systematic review on psychophysiological correlates of slow breathing.</em> Frontiers in Human Neuroscience, 14, 570963.
-        </a>
-      </li>
-      <li>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/33215961/" target="_blank" rel="noopener">
-          Porges, S.W. (2021). <em>The Polyvagal Theory: Neurophysiological foundations of emotions, attachment, communication, and self-regulation.</em> Norton & Company.
-        </a>
-      </li>
-      <li>
-        <a href="https://doi.org/10.1016/j.janxdis.2005.04.004" target="_blank" rel="noopener">
-          Meuret, A.E. et al. (2005). <em>Respiratory biofeedback-assisted therapy in panic disorder: Clinical outcome and mediating role of breathing regulation.</em> Journal of Anxiety Disorders, 19(5), 543–562.
-        </a>
-      </li>
-      <li>
-        <a href="https://doi.org/10.1016/j.janxdis.2015.05.002" target="_blank" rel="noopener">
-          Ma, X. et al. (2017). <em>The effect of diaphragmatic breathing on attention, negative affect and stress in healthy adults.</em> Frontiers in Psychology, 8, 874.
-        </a>
-      </li>
-    </ul>
-
-    <p style="margin-top: 24px; color: var(--muted);">
-      Flere studier utforsker hvordan rytme, pust og musikk påvirker hjernens aktivitet og emosjonell regulering. 
-      Breathing Cycles viderefører dette arbeidet i en kunstnerisk og anvendbar form.
-    </p>
-  </div>
-</section>
 
 <footer>
     <div class="foot">
