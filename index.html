@@ -80,7 +80,11 @@
         nav a{color:var(--muted);font-weight:600;}
         nav a:hover{color:var(--accent);}
         #google_translate_element{margin-left:12px;}
-        main{overflow-x:hidden;}
+        main {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
         .section{padding:80px 22px;}
         .section.light{background:var(--card);}
         .section.highlight{background:var(--highlight);}
