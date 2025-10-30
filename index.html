@@ -114,6 +114,28 @@
         .card{background:var(--card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);}
         .card h3{color:var(--accent);}
         footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center;}
+        /* Sikrer at språkvelgeren alltid vises på mobil */
+#google_translate_element {
+  position: relative;
+  display: inline-block;
+  transform: scale(0.85); /* gjør den litt mindre på mobil */
+  transform-origin: right top;
+}
+
+/* Juster nav-oppsettet slik at knappen brytes pent på små skjermer */
+@media (max-width: 720px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #google_translate_element {
+    margin-top: 8px;
+    width: 100%;
+    text-align: left;
+  }
+}
+
     </style>
 </head>
 
