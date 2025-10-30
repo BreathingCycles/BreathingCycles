@@ -51,15 +51,7 @@
         }
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ1YKGFC3D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-MQ1YKGFC3D');
-</script>
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
@@ -114,49 +106,7 @@
         .card{background:var(--card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);}
         .card h3{color:var(--accent);}
         footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center;}
-        /* Sikrer at språkvelgeren alltid vises på mobil */
-#google_translate_element {
-  position: relative;
-  display: inline-block;
-  transform: scale(0.85); /* gjør den litt mindre på mobil */
-  transform-origin: right top;
-}
-
-/* Juster nav-oppsettet slik at knappen brytes pent på små skjermer */
-@media (max-width: 720px) {
-  .nav {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  #google_translate_element {
-    margin-top: 8px;
-    width: 100%;
-    text-align: left;
-  }
-}
-/* === Mobilvennlig top-meny === */
-@media (max-width: 720px) {
-  nav ul {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* skjuler scrollbar på Android/Firefox */
-  }
-  nav ul::-webkit-scrollbar {
-    display: none; /* skjuler scrollbar på iPhone */
-  }
-}
-
-/* === Animasjon og skygge for sticky header === */
-header {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-header.visible {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
+    </style>
 </head>
 
 <body>
@@ -721,25 +671,6 @@ header.visible {
       });
     })();
 </script>
-<script>
-  let lastScrollTop = 0;
-  const header = document.querySelector('header');
-
-  window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop && currentScroll > 100) {
-      // Scroller ned → skjul header
-      header.style.transform = 'translateY(-100%)';
-      header.classList.remove('visible');
-    } else {
-      // Scroller opp → vis header med skygge
-      header.style.transform = 'translateY(0)';
-      header.classList.add('visible');
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  }, false);
-</script>
-
 
 </body>
 </html>
