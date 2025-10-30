@@ -135,8 +135,28 @@
     text-align: left;
   }
 }
+/* === Mobilvennlig top-meny === */
+@media (max-width: 720px) {
+  nav ul {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* skjuler scrollbar på Android/Firefox */
+  }
+  nav ul::-webkit-scrollbar {
+    display: none; /* skjuler scrollbar på iPhone */
+  }
+}
 
-    </style>
+/* === Animasjon og skygge for sticky header === */
+header {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.visible {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 </head>
 
 <body>
@@ -701,6 +721,25 @@
       });
     })();
 </script>
+<script>
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scroller ned → skjul header
+      header.style.transform = 'translateY(-100%)';
+      header.classList.remove('visible');
+    } else {
+      // Scroller opp → vis header med skygge
+      header.style.transform = 'translateY(0)';
+      header.classList.add('visible');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+</script>
+
 
 </body>
 </html>
