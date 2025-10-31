@@ -237,6 +237,14 @@
     }
 </style>
 
+<!-- GOOGLE TRANSLATE (kun øverst, ikke sticky) -->
+<div id="translate-bar">
+    <div class="container" style="text-align:right; padding:6px 22px;">
+        <div id="google_translate_element"></div>
+    </div>
+</div>
+
+<!-- HOVEDMENY -->
 <header>
     <div class="nav">
         <a href="#hero" class="brand">Breathing Cycles</a>
@@ -326,6 +334,64 @@
       margin-top: -120px;
       visibility: hidden;
     }
+    /* --- Translate bar --- */
+#translate-bar {
+  background: var(--card);
+  box-shadow: 0 1px 6px rgba(25,63,76,.06);
+  position: relative;
+  z-index: 40;
+}
+
+@media (max-width:720px) {
+  #translate-bar { text-align:center; }
+}
+
+/* --- Header og meny --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--card);
+  box-shadow: 0 2px 10px rgba(25,63,76,.06);
+}
+
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;           /* lar brukeren scrolle sidelengs */
+  white-space: nowrap;
+  scrollbar-width: none;      /* skjuler scrollbar på Firefox */
+}
+
+nav ul::-webkit-scrollbar { display: none; }  /* skjuler scrollbar på Chrome/Safari */
+
+nav a {
+  color: var(--muted);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+nav a:hover { color: var(--accent); }
 </style>
 
 <script>
