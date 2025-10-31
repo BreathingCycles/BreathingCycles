@@ -2,13 +2,15 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Breathing Cycles – Musikk for ro, fokus og balanse</title>
 
     <!-- SEO -->
     <meta name="description" content="Breathing Cycles av Øyvind Blikstad – musikk som guider pusten, senker stress og aktiverer vagusnerven. Gratis pustetrening med Spotify og YouTube.">
     <meta name="keywords" content="breathing cycles, pustemusikk, vagus nerve, stressmestring, mindfulness, rolig pust, Øyvind Blikstad, pusteteknikk, parasympatisk aktivering">
     <meta name="author" content="Øyvind Blikstad">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#2b6777">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Breathing Cycles – Music for calm, focus and balance">
@@ -16,6 +18,8 @@
     <meta property="og:image" content="https://breathingcycles.com/images/preview.jpg">
     <meta property="og:url" content="https://breathingcycles.com">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="nb_NO">
+    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -29,6 +33,14 @@
     <link rel="alternate" hreflang="en" href="https://breathingcycles.com/">
     <link rel="alternate" hreflang="x-default" href="https://breathingcycles.com/">
 
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ1YKGFC3D"></script>
     <script>
@@ -38,13 +50,13 @@
         gtag('config', 'G-MQ1YKGFC3D');
     </script>
 
-    <!-- Google Translate -->
+    <!-- Google Translate (auto + manuell) -->
     <meta name="google" content="notranslate">
-    <script type="text/javascript">
+    <script>
         function googleTranslateElementInit() {
           new google.translate.TranslateElement({
             pageLanguage: 'no',
-            includedLanguages: 'en,es,de,zh-CN',
+            includedLanguages: 'no,en,es,de,zh-CN',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false
           }, 'google_translate_element');
@@ -52,14 +64,9 @@
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <!-- Styles -->
     <style>
-        :root {
+        :root{
           --bg:#f4f8fb; --card:#fff; --ink:#1c2b33; --muted:#5f7a85;
           --accent:#2b6777; --accent-2:#56a3b5; --highlight:#eef6fb;
           --radius-lg:18px; --shadow-sm:0 4px 14px rgba(25,63,76,.08);
@@ -73,128 +80,79 @@
         html{scroll-behavior:smooth;}
         body{
           font-family:Inter,system-ui,sans-serif;
-          color:var(--ink);
-          background:var(--bg);
-          line-height:1.6;
+          color:var(--ink); background:var(--bg); line-height:1.6;
           -webkit-font-smoothing:antialiased;
         }
         a{color:var(--accent);text-decoration:none}
         a:hover{text-decoration:underline}
 
-        /* ---------- HEADER OG NAV ---------- */
-        header {
-          position: sticky;
-          top: 0;
-          z-index: 50;
-          background: var(--card);
-          box-shadow: 0 2px 10px rgba(25,63,76,.06);
-          overflow: hidden;
-          transition: transform .3s ease, box-shadow .3s ease;
+        /* Skip link (tilgjengelighet) */
+        .skip-link{
+          position:absolute; left:-999px; top:auto; width:1px; height:1px;
+          overflow:hidden; z-index:200; color:#fff; background:var(--accent);
+          padding:12px 18px; border-radius:999px;
+        }
+        .skip-link:focus{ left:50%; top:12px; width:auto; height:auto; transform:translateX(-50%); }
+
+        /* Sticky header */
+        header{
+          position:sticky; top:0; z-index:50; background:var(--card);
+          box-shadow:0 2px 10px rgba(25,63,76,.06);
+          transition:transform .3s ease, box-shadow .3s ease;
+        }
+        header.visible{ box-shadow:0 4px 12px rgba(0,0,0,.12); }
+
+        /* Hovedmeny – én linje, horisontal scroll + hint */
+        .nav{
+          max-width:var(--max); margin:0 auto; padding:14px 16px;
+          display:flex; align-items:center; gap:12px; justify-content:space-between;
+          position:relative; overflow-x:auto; white-space:nowrap;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch;
+        }
+        .nav::-webkit-scrollbar{ display:none; }
+        .nav::before, .nav::after{
+          content:""; position:absolute; top:0; bottom:0; width:40px; pointer-events:none;
+          transition:opacity .3s ease;
+        }
+        .nav::before{ left:0; background:linear-gradient(to right,var(--card) 40%,transparent); }
+        .nav::after{ right:0; background:linear-gradient(to left,var(--card) 40%,transparent); }
+        .nav.scrolled-left::before{ opacity:0; }
+        .nav.scrolled-right::after{ opacity:0; }
+
+        .brand{
+          font-weight:700; color:var(--accent); white-space:nowrap; flex-shrink:0;
+        }
+        nav{ flex:1 1 auto; overflow-x:auto; white-space:nowrap; }
+        nav ul{ margin:0; padding:0; list-style:none; display:flex; gap:18px; }
+        nav li{ flex:0 0 auto; }
+        nav a{ color:var(--muted); font-weight:600; }
+        nav a:hover{ color:var(--accent); }
+
+        /* Translate bar (ikke sticky) */
+        #translate-bar{
+          background:var(--card); box-shadow:0 1px 6px rgba(25,63,76,.06);
+          position:relative; z-index:40;
+        }
+        .translate-row{
+          max-width:var(--max); margin:0 auto; padding:6px 22px 10px; text-align:right;
+        }
+        #google_translate_element select{
+          background:#fff; border:1px solid #c6d7dc; border-radius:6px;
+          padding:4px 6px; font-size:.9rem; color:var(--accent);
+        }
+        @media (max-width:720px){
+          .translate-row{ text-align:center; padding:8px 10px; }
+          .nav{ padding:12px; gap:10px; justify-content:flex-start; }
+          nav ul{ gap:12px; }
         }
 
-        /* Hovedlinje: logo + meny */
-        .nav {
-          position: relative;
-          display: flex;
-          align-items: center;
-          gap: 18px;
-          justify-content: flex-start;
-          padding: 12px 16px;
-          overflow-x: auto;
-          white-space: nowrap;
-          scrollbar-width: none;
-          -webkit-overflow-scrolling: touch;
-        }
-        .nav::-webkit-scrollbar { display: none; }
-
-        /* Scroll-hint-gradienter på sidene */
-        .nav::before,
-        .nav::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 40px;
-          pointer-events: none;
-          transition: opacity .3s ease;
-        }
-        .nav::before {
-          left: 0;
-          background: linear-gradient(to right, var(--card) 40%, transparent);
-        }
-        .nav::after {
-          right: 0;
-          background: linear-gradient(to left, var(--card) 40%, transparent);
+        /* Anker-landing pent under header + translate */
+        :where(section[id], #learning-video, #livsmestring){ scroll-margin-top:var(--anchor-offset); }
+        :target::before{
+          content:""; display:block; height:120px; margin-top:-120px; visibility:hidden;
         }
 
-        /* Fjern gradienten når det ikke kan scrolles */
-        .nav:has(nav ul:only-child) { overflow-x: hidden; }
-        .nav.scrolled-left::before { opacity: 0; }
-        .nav.scrolled-right::after { opacity: 0; }
-
-        .brand {
-          flex: 0 0 auto;
-          font-weight: 700;
-          color: var(--accent);
-          cursor: pointer;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        nav {
-          flex: 1 1 auto;
-          overflow-x: auto;
-          white-space: nowrap;
-        }
-
-        nav ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          display: flex;
-          flex-wrap: nowrap;
-          gap: 18px;
-        }
-
-        nav li { flex: 0 0 auto; }
-
-        nav a {
-          color: var(--muted);
-          font-weight: 600;
-          text-decoration: none;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        /* Google-translate-raden under menyen */
-        .translate-row {
-          background: #f7fafb;
-          border-top: 1px solid #e4eef1;
-          padding: 6px 22px 10px;
-          text-align: right;
-        }
-        #google_translate_element select {
-          background: #fff;
-          border: 1px solid #c6d7dc;
-          border-radius: 6px;
-          padding: 4px 6px;
-          font-family: Inter, sans-serif;
-          font-size: .9rem;
-          color: var(--accent);
-        }
-
-        @media (max-width: 720px) {
-          .translate-row { text-align: center; padding: 8px 10px; }
-          .nav { justify-content: flex-start; }
-          nav ul { flex-wrap: nowrap; }
-        }
-
-        /* Når man klikker på et anker, lander seksjonen pent under headeren */
-        :where(section[id], #learning-video, #livsmestring) {
-          scroll-margin-top: var(--anchor-offset);
-        }
-
-        /* ---------- INNHOLD ---------- */
+        /* Innhold */
         main{overflow-x:hidden;}
         .section{padding:80px 22px;}
         .section.light{background:var(--card);}
@@ -205,113 +163,47 @@
         .lead{color:var(--muted);max-width:760px;margin:0 0 34px;}
         .hero{display:grid;gap:40px;align-items:center;
           grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-        .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;
-          border:none;border-radius:999px;font-weight:700;cursor:pointer;
-          box-shadow:var(--shadow-sm);}
+        .tagline{display:inline-block;background:#d5f3f7;padding:6px 12px;border-radius:999px;font-weight:600;color:var(--accent);}
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:none;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);}
         .btn-primary{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
         .btn-secondary{background:#e7f3f7;color:var(--accent);}
-        .video{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;
-          overflow:hidden;box-shadow:var(--shadow-md);background:#000;}
+        .cta{display:flex;flex-wrap:wrap;gap:12px;}
+        .video{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);background:#000;}
         .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+        .grid-2{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
         .grid-3{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+        .grid-4{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+        .grid-music{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
         .card{background:var(--card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);}
         .card h3{color:var(--accent);}
+        .spotify-icon{width:18px;vertical-align:middle;margin-right:6px;}
+        .quote-block{border-left:4px solid var(--accent);background:var(--highlight);padding:16px 20px;border-radius:12px;margin-top:18px;}
+        .quote-block p{margin:0;}
+        .section-heading{margin-top:56px;}
+        .share-actions{margin:20px 0;text-align:center;display:flex;flex-direction:column;gap:10px;}
+        .support-follow{text-align:center;margin-top:26px;}
+        .donation-note{text-align:center;}
+        .donation-heading{margin-top:12px;font-weight:600;}
+        .muted-list{margin:10px 0 0 18px;color:#5f7a85;}
+        .muted-note{color:#5f7a85;margin-top:6px;}
+
         footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center;}
     </style>
 
-    <script>
-        /* Enkel JS som skjuler scroll-hint når man når kanten */
-        document.addEventListener('DOMContentLoaded', () => {
-          const nav = document.querySelector('.nav');
-          if (!nav) return;
-          const updateHints = () => {
-            const { scrollLeft, scrollWidth, clientWidth } = nav;
-            nav.classList.toggle('scrolled-left', scrollLeft < 10);
-            nav.classList.toggle('scrolled-right', scrollLeft + clientWidth > scrollWidth - 10);
-          };
-          nav.addEventListener('scroll', updateHints);
-          updateHints();
-        });
-    </script>
 </head>
-
 <body>
 
-<!-- NY HEADER-SEKSJON -->
-<style>
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    header.visible {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 18px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .nav::-webkit-scrollbar { display: none; }
-    .brand {
-      font-weight: 700;
-      color: #2b6777;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-    nav ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      gap: 18px;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-    nav a {
-      color: #5f7a85;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    nav a:hover {
-      color: #2b6777;
-    }
-    .translate-row {
-      background: #f7fafb;
-      border-top: 1px solid #e4eef1;
-      padding: 6px 22px 10px;
-      text-align: right;
-    }
-    #google_translate_element select {
-      background: #fff;
-      border: 1px solid #c6d7dc;
-      border-radius: 6px;
-      padding: 4px 6px;
-      font-family: Inter, sans-serif;
-      font-size: 0.9rem;
-      color: #2b6777;
-    }
-    @media (max-width:720px){
-      .nav {padding:14px 12px;gap:10px;}
-      nav ul{gap:12px;}
-      .translate-row{text-align:center;padding:8px 10px;}
-    }
-</style>
+<!-- Språkbar (ikke sticky) -->
+<div id="translate-bar">
+    <div class="translate-row">
+        <div id="google_translate_element"></div>
+    </div>
 </div>
 
-<!-- HOVEDMENY -->
+<!-- Sticky hovedmeny -->
 <header>
-    <div class="nav">
-        <a href="#hero" class="brand">Breathing Cycles</a>
+    <div class="nav" id="top-nav">
+        <a href="#hero" class="brand" aria-label="Til toppen">Breathing Cycles</a>
         <nav aria-label="Hovedmeny">
             <ul>
                 <li><a href="#story">Om konseptet</a></li>
@@ -324,164 +216,18 @@
     </div>
 </header>
 
-<!-- Google Translate-boksen (bare én!) -->
-<div id="translate-bar">
-    <div class="container" style="text-align:right; padding:6px 22px;">
-        <div id="google_translate_element"></div>
-    </div>
-</div>
+<a class="skip-link" href="#hero">Hopp til hovedinnhold</a>
 
 <main>
-    <div id="top" aria-hidden="true"></div>
-<!-- Google Translate setup -->
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'no',
-        includedLanguages: 'no,en,es,de,zh-CN',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- Sticky header hide/show -->
-<script>
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScroll > lastScrollTop && currentScroll > 100) {
-        header.style.transform = 'translateY(-100%)';
-        header.classList.remove('visible');
-      } else {
-        header.style.transform = 'translateY(0)';
-        header.classList.add('visible');
-      }
-      lastScrollTop = Math.max(currentScroll, 0);
-    });
-</script>
-
-<!-- Auto-apply browser language -->
-<script>
-
-    (function(){
-      const supported = {'no':'no','en':'en','es':'es','de':'de','zh':'zh-CN'};
-      const lang = (navigator.language || navigator.userLanguage || 'no').toLowerCase();
-      const guess = supported[lang.split('-')[0]] || (lang.startsWith('zh') ? 'zh-CN' : null);
-      function applyTranslation(targetLang){
-        const sel = document.querySelector('.goog-te-combo');
-        if (!sel) return false;
-        if (sel.value === targetLang) return true;
-        sel.value = targetLang;
-        sel.dispatchEvent(new Event('change'));
-        return true;
-      }
-      window.addEventListener('load', ()=>{
-        if (!guess || guess === 'no') return;
-        let tries = 0;
-        const iv = setInterval(()=>{
-          tries++;
-          if (applyTranslation(guess) || tries > 50) clearInterval(iv);
-        }, 200);
-      });
-    })();
-</script>
-<!-- FIX: Juster anker-posisjon + aktiver logo-klikk -->
-<style>
-    /* Hindrer at overskriftene havner bak oversettelseslinjen */
-    :target::before {
-      content: "";
-      display: block;
-      height: 120px; /* justeres etter høyden på header + translate-linje */
-      margin-top: -120px;
-      visibility: hidden;
-    }
-    /* --- Translate bar --- */
-#translate-bar {
-  background: var(--card);
-  box-shadow: 0 1px 6px rgba(25,63,76,.06);
-  position: relative;
-  z-index: 40;
-}
-
-@media (max-width:720px) {
-  #translate-bar { text-align:center; }
-}
-
-/* --- Header og meny --- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: var(--card);
-  box-shadow: 0 2px 10px rgba(25,63,76,.06);
-}
-
-.nav {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.brand {
-  font-weight: 700;
-  color: var(--accent);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;           /* lar brukeren scrolle sidelengs */
-  white-space: nowrap;
-  scrollbar-width: none;      /* skjuler scrollbar på Firefox */
-}
-
-nav ul::-webkit-scrollbar { display: none; }  /* skjuler scrollbar på Chrome/Safari */
-
-nav a {
-  color: var(--muted);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-nav a:hover { color: var(--accent); }
-</style>
-
-<script>
-    // Sørger for at Breathing Cycles-logoen alltid ruller til toppen
-    document.addEventListener("DOMContentLoaded", function() {
-      const brand = document.querySelector(".brand");
-      if (brand) {
-        brand.addEventListener("click", function() {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-    });
-</script>
-<main>
-        <div id="top" aria-hidden="true"></div>
     <!-- HERO -->
     <section class="section highlight" id="hero">
         <div class="container hero">
             <div>
-        <span class="tagline" style="background:#d5f3f7;padding:6px 12px;border-radius:999px;">
-          Musikkdrevet pustetrening
-        </span>
+                <span class="tagline">Musikkdrevet pustetrening</span>
                 <h1>Finn roen – én pustesyklus av gangen</h1>
                 <p class="lead">
-                    Breathing Cycles er et gratis bibliotek med musikk som guider deg til langsommere pust, lavere puls og et mer fokusert sinn.
-                    Brukt i skoler, terapi, idrett og hverdag over hele verden.
+                    Breathing Cycles er et gratis bibliotek med musikk som guider deg til langsommere pust,
+                    lavere puls og et mer fokusert sinn. Brukt i skoler, terapi, idrett og hverdag over hele verden.
                 </p>
                 <div class="cta">
                     <a class="btn btn-primary" href="#library">Start å lytte</a>
@@ -490,14 +236,13 @@ nav a:hover { color: var(--accent); }
             </div>
             <div>
                 <div class="video" aria-label="Introduksjonsvideo">
-                    <iframe src="https://www.youtube.com/embed/YLr0dGt95i8"
-                            title="Introduksjon til Breathing Cycles" allowfullscreen></iframe>
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/YLr0dGt95i8" title="Introduksjon til Breathing Cycles" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STORY -->
+    <!-- OM KONSEPTET -->
     <section class="section light" id="story">
         <div class="container">
             <h2>Bygget på forskning, forankret i praksis</h2>
@@ -509,15 +254,54 @@ nav a:hover { color: var(--accent); }
                 <div class="card"><h3>Skolepensum</h3><p>Brukes i undervisning for å lære tilstedeværelse og trygg pustetrening.</p></div>
                 <div class="card"><h3>I media</h3>
                     <p>
-                        <a href="https://www.nrk.no/innlandet/xl/med-pustemusikk-og-pusteklinikk-laerer-dei-andre-a-puste-1.14815855" target="_blank">NRK artikkel</a><br>
-                        <a href="https://radio.nrk.no/podkast/ekko_-_et_aktuelt_samfunnsprogram/sesong/202001/l_137f406a-2193-43ea-bf40-6a2193d3ea66" target="_blank">EKKO podkast</a>
+                        <a href="https://www.nrk.no/innlandet/xl/med-pustemusikk-og-pusteklinikk-laerer-dei-andre-a-puste-1.14815855" target="_blank" rel="noopener">NRK artikkel</a><br>
+                        <a href="https://radio.nrk.no/podkast/ekko_-_et_aktuelt_samfunnsprogram/sesong/202001/l_137f406a-2193-43ea-bf40-6a2193d3ea66" target="_blank" rel="noopener">EKKO podkast</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- NY del: Hva er pustemusikk (integrert her) -->
+            <div class="card" style="margin-top:26px;">
+                <h3>Hva er pustemusikk?</h3>
+                <p>
+                    Pustemusikk er et konsept jeg lagde for mange år siden, etter å ha opplevd mitt første panikkanfall.
+                    Jeg forsto at pustemønsteret mitt kunne forhindre at det skjedde igjen, så jeg lagde musikk med et fast og sakte pustemønster.
+                    Nå hadde jeg en utvei og en strategi for neste gang det kunne skje. Angst for angsten er en ubehagelig tilstand, men med en utvei blir den lettere å møte.
+                </p>
+                <p>
+                    Konseptet fungerte så godt at jeg raskt fikk det inn i hverdagen. Noen år senere slet noen nær meg, og jeg laget det første albumet med pustemusikk:
+                    <a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=yXBtyN1xQfOBf5um-FMzow" target="_blank" rel="noopener"><strong>5 Stille Moments</strong></a>.
+                    Det var magi.
+                </p>
+                <p>
+                    Etter den oppdagelsen ble jeg kjent med, blant annet, Anette Aarsland, og jeg har laget mange timer med pustemusikk både for hennes øvelser og mine egne.
+                    Metoden er enkel:
+                </p>
+                <ul>
+                    <li>Bruk hodetelefoner. Legg deg ned eller sitt komfortabelt.</li>
+                    <li>Trykk på play og følg musikken med pusten: inn når musikken kommer fra venstre, ut når den går til høyre.</li>
+                    <li>Pust inn med nesa; varier utpusten med nese eller munn. Fokuser mer på <em>roligere</em> enn <em>mer</em> pust.</li>
+                    <li>La følelsene komme – gjesp, gråt, smil og latter er vanlige og frigjørende responser.</li>
+                    <li>Øv på magepust uten å presse. Det tar tid å styrke pustemuskler og mellomgulv (søk “belly breathing/diaphragm breathing”).</li>
+                    <li>Avslutt med å tenke på noen du er glad i, før du åpner øynene og tar inn øyeblikket.</li>
+                </ul>
+                <p>
+                    Som komponist, ektemann og far til tre jenter må jeg ofte nullstille hodet og finne fokus. Uten denne metoden vet jeg ikke hvordan livet hadde vært.
+                    Jeg håper den gjør godt – laget med kjærlighet, Øyvind.
+                </p>
+                <div class="quote-block" style="margin-top:16px;">
+                    <p>
+                        Vil du prøve en personlig favoritt? Hør
+                        <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener"><strong><em>6:3 to 20:10</em></strong></a>
+                        fra albumet <em>Slow Breathing Meditation</em>. Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
+                        Stopp gjerne når det føles riktig, og nyt roen som oppstår.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LEARN -->
+    <!-- LÆR -->
     <section class="section" id="learn">
         <div class="container">
             <h2>Lær teknikken</h2>
@@ -525,277 +309,128 @@ nav a:hover { color: var(--accent); }
                 Hodetelefoner på. Pust inn med nesa, ut med munnen. Musikken leder tempoet. Kjenn at magen heves og senkes mens brystet er i ro.
             </p>
             <div class="grid-3">
-                <div class="card"><h3>1. Bli bevisst</h3><p>Legg en hånd på magen og kjenn bevegelsen mens du puster inn gjennom nesa og ut gjennom munnen.</p></div>
-                <div class="card"><h3>2. Velg rytme</h3><p>Velg en spilleliste som matcher målet ditt. Musikken guider deg automatisk i et roligere tempo.</p></div>
+                <div class="card"><h3>1. Bli bevisst</h3><p>Legg en hånd på magen og kjenn bevegelsen mens du puster inn og ut.</p></div>
+                <div class="card"><h3>2. Velg rytme</h3><p>Velg en spilleliste som matcher målet ditt. Musikken guider deg i roligere tempo.</p></div>
                 <div class="card"><h3>3. Følg mønsteret</h3><p>Pust i takt med musikken. Begynn med 3–5 minutter og øk gradvis.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- TECHNIQUES -->
+    <!-- TEKNIKKER -->
     <section class="section highlight" id="techniques">
         <div class="container">
             <h2>Musikken guider pusten</h2>
-            <p class="lead">
-                Disse metodene dekker de fleste behov – fra akutt stressreduksjon til dyp søvnforberedelse.
-                Klikk på Spotify for å lytte, eller spill av videoene direkte her.
-            </p>
-
-            <div class="grid-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;">
-                <!-- 1: Rask reset -->
+            <p class="lead">Fra akutt stressreduksjon til dyp søvnforberedelse. Klikk på Spotify for å lytte, eller spill av videoene her.</p>
+            <div class="grid-2">
                 <div class="card">
                     <h3>Rask reset (3 minutter)</h3>
-                    <p>Tre minutters justering for ro og fokus. Perfekt før presentasjoner, møter eller etter fysisk aktivitet.</p>
+                    <p>Tre minutters justering for ro og fokus. Perfekt før presentasjoner, møter eller etter aktivitet.</p>
                     <p>
                         <a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank" rel="noopener">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                                 alt="Spotify" style="width:18px;vertical-align:middle;margin-right:6px;">
-                            Åpne i Spotify
+                            <img class="spotify-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt=""> Åpne i Spotify
                         </a>
                     </p>
-                    <div class="video" style="margin-top:10px;">
-                        <iframe src="https://www.youtube.com/embed/FvL9zF1L9Tg"
-                                title="Rask reset – Breathing Cycles" allowfullscreen></iframe>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/FvL9zF1L9Tg" title="Rask reset – Breathing Cycles" allowfullscreen></iframe>
                     </div>
                 </div>
 
-                <!-- 2: Vagus Breathing -->
                 <div class="card">
                     <h3>Vagus Breathing</h3>
-                    <p>5 sekunder inn og 5 sekunder ut i totalt 10 minutter – aktiverer vagusnerven og skaper balanse.</p>
+                    <p>5 sekunder inn og 5 sekunder ut i totalt 10 minutter – balanserer nervesystemet.</p>
                     <p>
                         <a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank" rel="noopener">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                                 alt="Spotify" style="width:18px;vertical-align:middle;margin-right:6px;">
-                            Åpne i Spotify
+                            <img class="spotify-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt=""> Åpne i Spotify
                         </a>
                     </p>
-                    <div class="video" style="margin-top:10px;">
-                        <iframe src="https://www.youtube.com/embed/FSbJDAhLBD8"
-                                title="Vagus Breathing – Breathing Cycles" allowfullscreen></iframe>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/FSbJDAhLBD8" title="Vagus Breathing – Breathing Cycles" allowfullscreen></iframe>
                     </div>
                 </div>
 
-                <!-- 3: 4-7-8 for Sleep -->
                 <div class="card">
                     <h3>4-7-8 for Sleep</h3>
-                    <p>Pust inn i fire slag, hold i syv og pust ut i åtte. Et klinisk støttet mønster for å senke stressnivå og puls.</p>
+                    <p>Pust inn i fire, hold i sju, pust ut i åtte – klinisk støttet for å senke stress og puls.</p>
                     <p>
                         <a href="https://open.spotify.com/track/3Zh38hPWsgWsG3w6OENL6o" target="_blank" rel="noopener">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                                 alt="Spotify" style="width:18px;vertical-align:middle;margin-right:6px;">
-                            Åpne i Spotify
+                            <img class="spotify-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt=""> Åpne i Spotify
                         </a>
                     </p>
-                    <div class="video" style="margin-top:10px;">
-                        <iframe src="https://www.youtube.com/embed/WeK2Gi97sTo"
-                                title="4-7-8 Sleep – Breathing Cycles" allowfullscreen></iframe>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/WeK2Gi97sTo" title="4-7-8 Sleep – Breathing Cycles" allowfullscreen></iframe>
                     </div>
                 </div>
 
-                <!-- 4: Songbirds -->
                 <div class="card">
                     <h3>Songbirds</h3>
-                    <p>Fra verdens første pustemusikk-album <em>5 Stille Moments</em>.<br>
-                        <em>Songbirds</em> har en unik evne til å roe ned både barn og voksne – mange forteller at babyer sovner raskt til denne.</p>
+                    <p>Fra albumet <em>5 Stille Moments</em>. Roer både barn og voksne – mange babyer sovner raskt til denne.</p>
                     <p>
                         <a href="https://open.spotify.com/track/6JJzaGWNoukqNxumFJmNbJ?si=0049b8d2bdad434b" target="_blank" rel="noopener">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                                 alt="Spotify" style="width:18px;vertical-align:middle;margin-right:6px;">
-                            Åpne i Spotify
+                            <img class="spotify-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt=""> Åpne i Spotify
                         </a>
                     </p>
-                    <div class="video" style="margin-top:10px;">
-                        <iframe src="https://www.youtube.com/embed/n6yUCzhpOGA"
-                                title="Songbirds – Breathing Cycles" allowfullscreen></iframe>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/n6yUCzhpOGA" title="Songbirds – Breathing Cycles" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section highlight" id="how-it-works">
-        <div class="container">
-            <h2>Slik virker pustemusikken</h2>
-            <p class="lead">
-                Pustemusikk kombinerer lyd, rytme og kroppens naturlige refleks til å puste langsomt.
-                Her er en kort introduksjon til hvordan musikken er bygget opp og hvorfor den har så beroligende virkning.
-            </p>
-
-            <div class="grid-4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-                <div class="card">
-                    <h3>Startguide</h3>
-                    <p>
-                        Langsom pust er kroppens enkleste vei til ro. Når du puster rolig, sender du signaler til hjernen om trygghet – og vagusnerven aktiveres.
-                        Breathing Cycles støtter denne prosessen i rytme og rom: lyden beveger seg fra venstre (innpust) til høyre (utpust),
-                        slik at kroppen intuitivt følger lyden uten anstrengelse.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Hvorfor venstre til høyre</h3>
-                    <p>
-                        Når du puster inn og lyden beveger seg fra venstre mot midten, aktiveres høyre hjernehalvdel – den som er forbundet med tilstedeværelse og følelser.
-                        Når utpusten flyter videre mot høyre, stimuleres venstre hjernehalvdel, som står for analyse og ro.
-                        Denne vekslingen hjelper hjernen å synkronisere og skaper balanse.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Hvordan påvirkes vagusnerven</h3>
-                    <p>
-                        Vagusnerven forbinder hjernen med hjerte, lunger og mage. Når du puster dypt og langsomt, sender lungene signaler som roer hjertet og senker blodtrykket.
-                        Kombinasjonen av rolig pust og stereobevegelse forsterker denne effekten, og kroppen glir inn i balanse.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Nevrologisk forklaring</h3>
-                    <p>
-                        Langsom, jevn pust øker aktiviteten i vagusnerven – kroppens egen «rolig-ned-knapp».
-                        Det senker puls og blodtrykk og aktiverer det parasympatiske nervesystemet (hvile og gjenoppretting).
-                        Bilateral lydstimulering bidrar til økt hjertefrekvensvariabilitet (HRV), roligere fysiologi og bedre emosjonell regulering.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- LIBRARY -->
+    <!-- BIBLIOTEK -->
     <section class="section" id="library">
         <div class="container">
             <h2>Musikkbibliotek</h2>
-            <p class="lead">
-                Velg en kategori for å finne riktig stemning. Alle spor åpnes i Spotify og kan brukes fritt i undervisning,
-                terapi eller egen praksis.
-            </p>
+            <p class="lead">Velg en kategori for å finne riktig stemning. Åpnes i Spotify og kan brukes fritt i undervisning, terapi eller egen praksis.</p>
 
             <h3>Playlister</h3>
-            <div class="grid-3" style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank" rel="noopener">Ready in 3 min (QuickFix)</a></h4>
-                    <p>Rask justering når du trenger fokus på få minutter.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6" target="_blank" rel="noopener">Reduce Stress</a></h4>
-                    <p>Rolig groove som hjelper deg å slippe spenning og senke skuldrene.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ" target="_blank" rel="noopener">Sleep (Deep Calm & Relax)</a></h4>
-                    <p>Myke pads og sakte rytmer som leder kroppen inn i søvn.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv" target="_blank" rel="noopener">F*#% Anxiety</a></h4>
-                    <p>Først kun pust, deretter trygg musikk for å slippe ut uro og finne fotfeste igjen.</p>
-                </div>
+            <div class="grid-music">
+                <div class="card"><h4><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank" rel="noopener">Ready in 3 min (QuickFix)</a></h4><p>Rask justering når du trenger fokus.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6" target="_blank" rel="noopener">Reduce Stress</a></h4><p>Rolig groove som hjelper deg å slippe spenning.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ" target="_blank" rel="noopener">Sleep (Deep Calm & Relax)</a></h4><p>Myke pads og sakte rytmer for søvn.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv" target="_blank" rel="noopener">F*#% Anxiety</a></h4><p>Fra pust til trygg musikk for fotfeste.</p></div>
             </div>
 
-            <h3 style="margin-top:56px;">Album</h3>
-            <div class="grid-3" style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank" rel="noopener">Vagus Breathing</a></h4>
-                    <p>Designet for å aktivere vagusnerven og oppnå dyp avspenning.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I" target="_blank" rel="noopener">Slow Breathing Meditation</a></h4>
-                    <p>En helhetlig reise gjennom langsomme pustesykluser.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA" target="_blank" rel="noopener">BREASE</a></h4>
-                    <p>Utforsk de 55 byggeklossene som sømløst glir over i hverandre slik at du kan lage din egen spilleliste.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4" target="_blank" rel="noopener">Inhale Hold Exhale</a></h4>
-                    <p>Litt som 4-7-8-teknikken – perfekt etter en lang dag.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk" target="_blank" rel="noopener">Exhale Hold Inhale</a></h4>
-                    <p>En speilvendt tilnærming som trener kontrollert utpust.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF" target="_blank" rel="noopener">5 Stille Moments</a></h4>
-                    <p>Fem korte pustemeditasjoner. “Songbirds” har roet svært mange barn.</p>
-                </div>
+            <h3 class="section-heading">Album</h3>
+            <div class="grid-music">
+                <div class="card"><h4><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank" rel="noopener">Vagus Breathing</a></h4><p>Aktiverer vagusnerven, dyp avspenning.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I" target="_blank" rel="noopener">Slow Breathing Meditation</a></h4><p>Helhetlig reise gjennom langsomme sykluser.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA" target="_blank" rel="noopener">BREASE</a></h4><p>55 byggeklosser for egen spilleliste.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4" target="_blank" rel="noopener">Inhale Hold Exhale</a></h4><p>Litt som 4-7-8 – etter en lang dag.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk" target="_blank" rel="noopener">Exhale Hold Inhale</a></h4><p>Trener kontrollert utpust.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF" target="_blank" rel="noopener">5 Stille Moments</a></h4><p>Fem korte pustemeditasjoner.</p></div>
             </div>
 
-            <h3 style="margin-top:56px;">Singler</h3>
-            <div class="grid-3" style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv" target="_blank" rel="noopener">Breathe Out</a></h4>
-                    <p>Kan pustemusikk og popmusikk blandes?</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8" target="_blank" rel="noopener">478</a></h4>
-                    <p>Et kort spor for å mestre den klassiske 4-7-8-rytmen.</p>
-                </div>
-                <div class="card">
-                    <h4><a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo" target="_blank" rel="noopener">Vagus Breathing – Let Go</a></h4>
-                    <p>Gi slipp på spenning med varme, pulserende klangflater.</p>
-                </div>
+            <h3 class="section-heading">Singler</h3>
+            <div class="grid-music">
+                <div class="card"><h4><a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv" target="_blank" rel="noopener">Breathe Out</a></h4><p>Pustemusikk + pop?</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8" target="_blank" rel="noopener">478</a></h4><p>Kort spor for klassisk 4-7-8-rytme.</p></div>
+                <div class="card"><h4><a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo" target="_blank" rel="noopener">Vagus Breathing – Let Go</a></h4><p>Varme klangflater for å slippe spenning.</p></div>
             </div>
         </div>
     </section>
-    <!-- PATH -->
+
+    <!-- VEILEDER -->
     <section class="section highlight" id="practice-guide">
         <div class="container">
             <h2>Veileder for egen utvikling</h2>
-            <p class="lead">
-                Breathing Cycles handler om å bli kjent med sin egen pust.
-                Øvelsene er en reise du styrer selv – i ditt tempo, med din oppmerksomhet.
-                Det viktigste er ikke hvor langt du kommer, men at du lytter til kroppen og fortsetter å utforske.
-            </p>
-
-            <div class="grid-4" style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-                <div class="card">
-                    <h3>Start med bevissthet</h3>
-                    <p>
-                        Sett deg et rolig sted og legg merke til hvordan du puster akkurat nå.
-                        Ikke prøv å endre noe med én gang – bare observer.
-                        Over tid vil musikken hjelpe deg å forlenge pusten naturlig, uten anstrengelse.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Tren på regelmessighet</h3>
-                    <p>
-                        Gjør korte økter heller enn lange – 3 til 10 minutter om gangen er nok.
-                        Regelmessighet er nøkkelen: ett pust om gangen, én dag av gangen.
-                        Du kan lytte liggende, sittende, eller mens du hviler et øyeblikk i dagen.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Før notater for egen progresjon</h3>
-                    <p>
-                        Ta med en liten notatblokk.
-                        Skriv noen stikkord før og etter øvelsen – hvordan du føler deg, når du gjør det, og hvorfor.
-                        Etter noen uker vil du se mønstre: kanskje du puster roligere, tenker klarere, eller sover bedre.
-                        Dette er din egen logg – et speil av din utvikling.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Ta ansvar for reisen</h3>
-                    <p>
-                        Breathing Cycles tilbyr ingen målinger eller app som følger deg opp.
-                        Din erfaring er ditt kompass.
-                        Jo mer du reflekterer og utforsker selv, desto dypere blir læringen.
-                        Pustemusikken er verktøyet – men reisen er din.
-                    </p>
-                </div>
+            <p class="lead">Bli kjent med pusten i ditt tempo. Det viktigste er ikke hvor langt du kommer, men at du lytter og fortsetter å utforske.</p>
+            <div class="grid-4">
+                <div class="card"><h3>Start med bevissthet</h3><p>Sett deg rolig og observer pusten. Over tid forlenges den naturlig.</p></div>
+                <div class="card"><h3>Tren på regelmessighet</h3><p>Kort og ofte. 3–10 minutter holder – én dag av gangen.</p></div>
+                <div class="card"><h3>Før notater</h3><p>Skriv stikkord før/etter øktene. Se mønstre over tid.</p></div>
+                <div class="card"><h3>Ta ansvar for reisen</h3><p>Ingen app eller målinger her – din erfaring er kompasset.</p></div>
             </div>
         </div>
     </section>
-    <!-- LEARNING VIDEO -->
+
+    <!-- UNDERVISNINGSVIDEO -->
     <section class="section highlight" id="learning-video">
         <div class="container">
             <h2>Pusten og følelser – folkehelse og livsmestring</h2>
-            <p class="lead">
-                Denne korte filmen brukes i grunnskolen som del av fagområdet folkehelse og livsmestring.
-                Den viser hvordan enkle pusteteknikker kan hjelpe barn og unge å regulere følelser, redusere stress og finne ro i hverdagen. Den er også fin for voksne.
-            </p>
+            <p class="lead">Brukt i grunnskolen som del av folkehelse og livsmestring. Også fin for voksne.</p>
             <div class="video" aria-label="Å puste – undervisningsfilm">
-                <iframe src="https://www.youtube.com/embed/C2m_wIMtwuU" title="Å puste – fra pensum i folkehelse og livsmestring" allowfullscreen></iframe>
+                <iframe loading="lazy" src="https://www.youtube.com/embed/C2m_wIMtwuU" title="Å puste – fra pensum i folkehelse og livsmestring" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -804,151 +439,84 @@ nav a:hover { color: var(--accent); }
     <section class="section" id="livsmestring">
         <div class="container">
             <h2>Folkehelse og livsmestring</h2>
-            <p class="lead">
-                Pustemusikken er også en del av undervisningsprosjektet
-                <em><a href="https://www.livetogsann.no" target="_blank" rel="noopener">Livet &amp; Sånn</a></em>,
-                som hjelper barn og unge å forstå følelser, ro og egenregulering. Her er tre korte filmer.
-            </p>
+            <p class="lead">En del av undervisningsprosjektet <em><a href="https://www.livetogsann.no" target="_blank" rel="noopener">Livet &amp; Sånn</a></em>.</p>
             <div class="grid-3">
                 <div class="card">
                     <h3>S-pust</h3>
-                    <div class="video" aria-label="S-pust undervisningsfilm">
-                        <iframe src="https://www.youtube.com/embed/3cQudxS_SBU?si=_e9dZGlwhmTuPiHl" title="S-pust – fra Livet og sånn" allowfullscreen></iframe>
-                    </div>
-                    <p>En enkel øvelse der elevene lærer å puste rolig gjennom en svak S-lyd for ro og konsentrasjon.</p>
+                    <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/3cQudxS_SBU?si=_e9dZGlwhmTuPiHl" title="S-pust – fra Livet og sånn" allowfullscreen></iframe></div>
+                    <p>Rolig S-lyd for konsentrasjon og ro.</p>
                 </div>
                 <div class="card">
                     <h3>Når følelser blir vanskelige</h3>
-                    <div class="video" aria-label="Når følelser blir vanskelige film">
-                        <iframe src="https://www.youtube.com/embed/1wRDJhmC0Sg" title="Når følelser blir vanskelige – Livet og sånn" allowfullscreen></iframe>
-                    </div>
-                    <p>Hvordan vi kan møte sterke følelser med pust, refleksjon og forståelse – sammen.</p>
+                    <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/1wRDJhmC0Sg" title="Når følelser blir vanskelige – Livet og sånn" allowfullscreen></iframe></div>
+                    <p>Møte sterke følelser med pust, refleksjon og forståelse.</p>
                 </div>
                 <div class="card">
                     <h3>Breathe Out – musikkvideo</h3>
-                    <div class="video" aria-label="Breathing Cycles musikkvideo">
-                        <iframe src="https://www.youtube.com/embed/eNiL4n5_AQA" title="Breathing Cycles – musikkvideo" allowfullscreen></iframe>
-                    </div>
-                    <p>En musikalsk oppsummering av pustens kraft: fra krise til kontroll – i én poplåt.</p>
+                    <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/eNiL4n5_AQA" title="Breathing Cycles – musikkvideo" allowfullscreen></iframe></div>
+                    <p>Fra krise til kontroll – i én poplåt.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SUPPORT -->
+    <!-- STØTT -->
     <section class="section highlight" id="support">
         <div class="container">
             <h2>Støtt visjonen</h2>
-            <p class="lead">
-                Breathing Cycles skal være gratis for alle.
-                Om du ønsker å bidra til mer innhold og utvikling, finnes det flere måter å støtte på – enten økonomisk eller ved å dele siden videre.
-            </p>
+            <p class="lead">Breathing Cycles er gratis. Støtt med en deling eller en donasjon om du vil bidra til videre utvikling.</p>
 
             <div class="grid-3">
-                <!-- 1: Del og støtt -->
                 <div class="card">
                     <h3>Spre roen – del og støtt</h3>
-                    <p>
-                        Hver deling hjelper flere til å oppdage gratis pustemusikk som kan gi ro, bedre søvn og mindre stress.
-                        Du kan også bidra med en liten donasjon om du ønsker å støtte videre utvikling.
-                    </p>
-
-                    <div style="margin:20px 0; text-align:center; display:flex; flex-direction:column; gap:10px;">
+                    <p>Hver deling hjelper flere å oppdage pustemusikk for ro, bedre søvn og mindre stress.</p>
+                    <div class="share-actions">
                         <a class="btn btn-secondary" href="https://www.facebook.com/sharer/sharer.php?u=https://breathingcycles.com" target="_blank" rel="noopener">Del på Facebook</a>
                         <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https://breathingcycles.com&text=Gratis+pustemusikk+for+ro,+fokus+og+balanse:+Breathing+Cycles" target="_blank" rel="noopener">Del på X / Twitter</a>
                         <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https://breathingcycles.com" target="_blank" rel="noopener">Del på LinkedIn</a>
                         <a class="btn btn-secondary" href="https://api.whatsapp.com/send?text=Oppdag%20Breathing%20Cycles%20%E2%80%93%20gratis%20pustemusikk%20for%20ro,%20balanse%20og%20søvn:%20https://breathingcycles.com" target="_blank" rel="noopener">Del på WhatsApp</a>
                         <a class="btn btn-secondary" href="mailto:?subject=Oppdag%20Breathing%20Cycles&body=Sjekk%20ut%20gratis%20pustemusikk%20på%20https://breathingcycles.com%20%E2%80%93%20roligere%20pust,%20bedre%20balanse." target="_blank" rel="noopener">Del via e-post</a>
                     </div>
-
-                    <p style="margin-top:12px;">Ønsker du å bidra økonomisk?</p>
-                    <p style="text-align:center;">
-                        <a class="btn btn-primary" href="https://paypal.me/oyvindblikstad" target="_blank" rel="noopener">Doner nå</a>
-                    </p>
+                    <p class="donation-heading">Ønsker du å bidra økonomisk?</p>
+                    <p class="donation-note"><a class="btn btn-primary" href="https://paypal.me/oyvindblikstad" target="_blank" rel="noopener">Doner nå</a></p>
                 </div>
 
-                <!-- 2: Pro -->
                 <div class="card">
                     <h3>Breathing Cycles Pro</h3>
-                    <p>Planlagt medlemskap for deg som ønsker fordypning og eksklusivt materiale.</p>
-                    <ul style="margin:10px 0 0 18px;color:#5f7a85">
-                        <li>Live økter og Q&amp;A</li>
+                    <p>Planlagt medlemskap for fordypning og eksklusivt materiale.</p>
+                    <ul class="muted-list">
+                        <li>Live-økter og Q&amp;A</li>
                         <li>Nedlastbare spor og lærerveiledninger</li>
                         <li>Rettledning for terapeuter</li>
                     </ul>
-                    <p style="margin-top:10px;">
-                        Interessert? <a href="mailto:oyvindblikstad@gmail.com">Send e-post</a> for forhåndstilgang.
-                    </p>
-                    <p style="color:#5f7a85;margin-top:6px;">(Ikke operativ tjeneste ennå.)</p>
+                    <p class="donation-note" style="text-align:left;">Interessert? <a href="mailto:oyvindblikstad@gmail.com">Send e-post</a> for forhåndstilgang.</p>
+                    <p class="muted-note">(Ikke operativ tjeneste ennå.)</p>
                 </div>
 
-                <!-- 3: Skoler og organisasjoner -->
                 <div class="card">
                     <h3>For skoler &amp; organisasjoner</h3>
-                    <p>
-                        Tilpassede opplegg for læringsinstitusjoner, idrettslag og bedrifter som vil jobbe systematisk med regulering.
-                    </p>
-                    <ul style="margin:10px 0 0 18px;color:#5f7a85">
+                    <p>Tilpassede opplegg for læringsinstitusjoner, idrettslag og bedrifter som vil jobbe systematisk med regulering.</p>
+                    <ul class="muted-list">
                         <li>Workshop og kurs for ansatte</li>
                         <li>Integrering i eksisterende pensum</li>
                         <li>Enkle måleverktøy for effekt</li>
                     </ul>
-                    <p style="margin-top:10px;">
-                        Kontakt <a href="mailto:oyvindblikstad@gmail.com">Øyvind</a> for å komme i gang.
-                    </p>
-                    <p style="color:#5f7a85;margin-top:6px;">(Ikke operativ tjeneste ennå.)</p>
+                    <p class="donation-note" style="text-align:left;">Kontakt <a href="mailto:oyvindblikstad@gmail.com">Øyvind</a> for å komme i gang.</p>
+                    <p class="muted-note">(Ikke operativ tjeneste ennå.)</p>
                 </div>
             </div>
 
-            <div style="text-align:center; margin-top:26px;">
+            <div class="support-follow">
                 <a href="https://www.facebook.com/breathingcycles" target="_blank" rel="noopener" class="btn btn-secondary">Følg på Facebook</a>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section light" id="faq">
-        <div class="container">
-            <h2>Ofte stilte spørsmål</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Koster det noe?</h3>
-                    <p>Nei. Alt er gratis på Spotify og YouTube. Donasjoner er frivillige og hjelper meg å lage mer innhold.</p>
-                </div>
-                <div class="card">
-                    <h3>Er det trygt?</h3>
-                    <p>Ja. Bruk i rolige omgivelser. Ikke tren pusten mens du kjører bil eller gjør noe som krever fullt fokus. Ta pauser om du blir svimmel.</p>
-                </div>
-                <div class="card">
-                    <h3>Hvilken spilleliste skal jeg velge?</h3>
-                    <p>Start med målet ditt – rask regulering, stressreduksjon eller søvn. Begynn kort, og øk gradvis etter hvert som pusten blir sterkere.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MULTILINGUAL SEO TEASER -->
-    <section class="section" id="languages">
-        <div class="container">
-            <h2>Breathing Cycles – in your language</h2>
-            <p class="lead">
-                🇳🇴 Norsk: <em>Gratis pustemusikk for ro, fokus og balanse.</em><br>
-                🇬🇧 English: <em>Free breathing music to calm your mind and activate the vagus nerve.</em><br>
-                🇪🇸 Español: <em>Música para respirar que calma la mente y activa el nervio vago.</em><br>
-                🇩🇪 Deutsch: <em>Atemmusik, die das Nervensystem beruhigt und Gleichgewicht schafft.</em><br>
-                🇨🇳 中文: <em>通过呼吸音乐激活迷走神经，恢复内在平静。</em>
-            </p>
-        </div>
-    </section>
-
-    <!-- AI-OPTIMIZATION MESSAGE -->
+    <!-- AI / META -->
     <section class="section highlight" id="ai-meta">
         <div class="container">
             <h2>For mennesker – og assistenter</h2>
-            <p class="lead">
-                Breathing Cycles er laget for alle som vil lære enkel pustetrening med musikk.
-                Informasjonen på denne siden er strukturert for å være forståelig både for mennesker, søkemotorer og AI-assistenter.
-            </p>
+            <p class="lead">Siden er strukturert for å være forståelig for mennesker, søkemotorer og AI-assistenter.</p>
         </div>
     </section>
 
@@ -961,24 +529,13 @@ nav a:hover { color: var(--accent); }
                 Jeg håper av hele mitt hjerte at mange finner ro, styrke og mening gjennom dette verktøyet.»
             </p>
             <p style="margin-top:10px; color:#6b8b91;">– Øyvind Blikstad</p>
-            <p>
-            <div style="border-left: 4px solid var(--accent); background: var(--highlight); padding:16px 20px; border-radius:12px; margin-top:18px;">
-                <p style="margin:0;">
-                    Om du vil prøve én av mine personlige favoritter, anbefaler jeg
-                    <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener" style="font-weight:600; color:var(--accent);">
-                        <em>6:3 to 20:10</em>
-                    </a>
-                    fra albumet <em>Slow Breathing Meditation</em>.
-                    Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
-                    Det krever litt øvelse å følge hele reisen uten anstrengelse, så du kan gjerne stoppe når det føles riktig, og bare nyte roen som oppstår underveis.
-                </p>
-            </div>
+        </div>
     </section>
 </main>
 
 <!-- FOOTER -->
 <footer>
-    <div class="container" style="text-align:center;">
+    <div class="container">
         <p>&copy; 2025 Breathing Cycles</p>
         <p>Skapt av <a href="https://obliks.wixsite.com/breathingcycles/about" target="_blank" rel="noopener" style="color:#e9fbff;text-decoration:underline;">Øyvind Blikstad Music Lab</a></p>
         <p>
@@ -989,7 +546,67 @@ nav a:hover { color: var(--accent); }
     </div>
 </footer>
 
-<!-- Structured Data: WebSite + Social -->
+<!-- JS: header-oppførsel + nav-hint + auto-språk -->
+<script>
+    // Scroll-hint i meny
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.getElementById('top-nav');
+      if (!nav) return;
+      const updateHints = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = nav;
+        nav.classList.toggle('scrolled-left', scrollLeft < 10);
+        nav.classList.toggle('scrolled-right', scrollLeft + clientWidth > scrollWidth - 10);
+      };
+      nav.addEventListener('scroll', updateHints, { passive: true });
+      updateHints();
+    });
+
+    // Sticky header show/hide
+    (function(){
+      let last = 0;
+      const header = document.querySelector('header');
+      if (!header) return;
+      header.classList.add('visible');
+      window.addEventListener('scroll', () => {
+        const y = window.pageYOffset || document.documentElement.scrollTop;
+        if (y > last && y > 100) {
+          header.style.transform = 'translateY(-100%)';
+          header.classList.remove('visible');
+        } else {
+          header.style.transform = 'translateY(0)';
+          header.classList.add('visible');
+        }
+        last = Math.max(y, 0);
+      }, { passive:true });
+    })();
+
+    // Auto-apply Google Translate (behold NO som default, bytt ved utenlandsk språk)
+    (function(){
+      const supported = { 'no':'no', 'en':'en', 'es':'es', 'de':'de', 'zh':'zh-CN' };
+      const lang = (navigator.language || navigator.userLanguage || 'no').toLowerCase();
+      const guess = supported[lang.split('-')[0]] || (lang.startsWith('zh') ? 'zh-CN' : null);
+
+      function applyTranslation(targetLang){
+        const sel = document.querySelector('.goog-te-combo');
+        if (!sel) return false;
+        if (sel.value === targetLang) return true;
+        sel.value = targetLang;
+        sel.dispatchEvent(new Event('change'));
+        return true;
+      }
+
+      window.addEventListener('load', () => {
+        if (!guess || guess === 'no') return; // behold norsk
+        let tries = 0;
+        const iv = setInterval(() => {
+          tries++;
+          if (applyTranslation(guess) || tries > 50) clearInterval(iv);
+        }, 200);
+      });
+    })();
+</script>
+
+<!-- Structured Data: WebSite -->
 <script type="application/ld+json">
     {
         "@context":"https://schema.org",
@@ -1003,6 +620,8 @@ nav a:hover { color: var(--accent); }
         }
     }
 </script>
+
+<!-- Structured Data: Organization -->
 <script type="application/ld+json">
     {
         "@context":"https://schema.org",
@@ -1023,32 +642,90 @@ nav a:hover { color: var(--accent); }
     }
 </script>
 
-<!-- Auto-apply Google Translate based on browser language -->
-<script>
-    (function () {
-      const supported = { 'en': 'en', 'es': 'es', 'de': 'de', 'zh': 'zh-CN' };
-      const lang = (navigator.language || navigator.userLanguage || 'no').toLowerCase();
-      const guess = supported[lang.split('-')[0]] || (lang.startsWith('zh') ? 'zh-CN' : null);
+<!-- Structured Data: Person (Øyvind) -->
+<script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"Person",
+        "name":"Øyvind Blikstad",
+        "jobTitle":"Composer & Sound Designer",
+        "url":"https://breathingcycles.com",
+        "sameAs":[
+            "https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO",
+            "https://www.facebook.com/breathingcycles"
+        ]
+    }
+</script>
 
-      function applyTranslation(targetLang) {
-        const sel = document.querySelector('.goog-te-combo');
-        if (!sel) return false;
-        if (sel.value === targetLang) return true;
-        sel.value = targetLang;
-        sel.dispatchEvent(new Event('change'));
-        return true;
-      }
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+            {
+                "@type":"Question",
+                "name":"Koster det noe?",
+                "acceptedAnswer":{"@type":"Answer","text":"Alt innholdet på Spotify og YouTube er gratis. Donasjoner er frivillige og bidrar til mer innhold."}
+            },
+            {
+                "@type":"Question",
+                "name":"Er det trygt?",
+                "acceptedAnswer":{"@type":"Answer","text":"Bruk pustemusikken i rolige omgivelser. Unngå øvelsene når du kjører bil eller gjør noe som krever fullt fokus, og ta pauser hvis du blir svimmel."}
+            },
+            {
+                "@type":"Question",
+                "name":"Hvilken spilleliste skal jeg velge?",
+                "acceptedAnswer":{"@type":"Answer","text":"Start med målet ditt – rask regulering, stressreduksjon eller søvn. Begynn kort, og øk gradvis etter hvert som pusten blir sterkere."}
+            }
+        ]
+    }
+</script>
 
-      // Wait for the Google widget to render, then translate if not Norwegian
-      window.addEventListener('load', () => {
-        if (!guess) return; // keep Norwegian
-        let tries = 0;
-        const iv = setInterval(() => {
-          tries++;
-          if (applyTranslation(guess) || tries > 50) clearInterval(iv);
-        }, 200);
-      });
-    })();
+<!-- Structured Data: MusicAlbum (Breathing Cycles + 5 Stille Moments) -->
+<script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"ItemList",
+        "itemListElement":[
+            {
+                "@type":"MusicAlbum",
+                "name":"Vagus Breathing",
+                "url":"https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A",
+                "byArtist":{"@type":"MusicGroup","name":"Breathing Cycles"}
+            },
+            {
+                "@type":"MusicAlbum",
+                "name":"Slow Breathing Meditation",
+                "url":"https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I",
+                "byArtist":{"@type":"MusicGroup","name":"Breathing Cycles"}
+            },
+            {
+                "@type":"MusicAlbum",
+                "name":"BREASE",
+                "url":"https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA",
+                "byArtist":{"@type":"MusicGroup","name":"Breathing Cycles"}
+            },
+            {
+                "@type":"MusicAlbum",
+                "name":"Inhale Hold Exhale",
+                "url":"https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4",
+                "byArtist":{"@type":"MusicGroup","name":"Breathing Cycles"}
+            },
+            {
+                "@type":"MusicAlbum",
+                "name":"Exhale Hold Inhale",
+                "url":"https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk",
+                "byArtist":{"@type":"MusicGroup","name":"Breathing Cycles"}
+            },
+            {
+                "@type":"MusicAlbum",
+                "name":"5 Stille Moments",
+                "url":"https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF",
+                "byArtist":{"@type":"Person","name":"Øyvind Blikstad"}
+            }
+        ]
+    }
 </script>
 
 </body>
