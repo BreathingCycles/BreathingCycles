@@ -188,6 +188,53 @@
         .muted-note{color:#5f7a85;margin-top:6px;}
 
         footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center;}
+        .expandable-text {
+  position: relative;
+  margin-top: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 22px;
+  max-width: 800px;
+}
+
+.expandable-text h3 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+.hidden-text {
+  display: none;
+  margin-top: 10px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--accent-2);
+}
+
+.quote-block.personal-fav {
+  border-left: 4px solid var(--accent);
+  background: var(--highlight);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-top: 18px;
+  font-style: italic;
+  color: #355c64;
+  line-height: 1.8;
+}
     </style>
 
 </head>
@@ -260,43 +307,81 @@
                 </div>
             </div>
 
-            <!-- NY del: Hva er pustemusikk (integrert her) -->
-            <div class="card" style="margin-top:26px;">
-                <h3>Hva er pustemusikk?</h3>
+            <!-- HVA ER PUSTEMUSIKK -->
+            <div class="expandable-text">
+                <h3>Hva er pustemusikk</h3>
                 <p>
                     Pustemusikk er et konsept jeg lagde for mange år siden, etter å ha opplevd mitt første panikkanfall.
-                    Jeg forsto at pustemønsteret mitt kunne forhindre at det skjedde igjen, så jeg lagde musikk med et fast og sakte pustemønster.
-                    Nå hadde jeg en utvei og en strategi for neste gang det kunne skje. Angst for angsten er en ubehagelig tilstand, men med en utvei blir den lettere å møte.
                 </p>
-                <p>
-                    Konseptet fungerte så godt at jeg raskt fikk det inn i hverdagen. Noen år senere slet noen nær meg, og jeg laget det første albumet med pustemusikk:
-                    <a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=yXBtyN1xQfOBf5um-FMzow" target="_blank" rel="noopener"><strong>5 Stille Moments</strong></a>.
-                    Det var magi.
-                </p>
-                <p>
-                    Etter den oppdagelsen ble jeg kjent med, blant annet, Anette Aarsland, og jeg har laget mange timer med pustemusikk både for hennes øvelser og mine egne.
-                    Metoden er enkel:
-                </p>
-                <ul>
-                    <li>Bruk hodetelefoner. Legg deg ned eller sitt komfortabelt.</li>
-                    <li>Trykk på play og følg musikken med pusten: inn når musikken kommer fra venstre, ut når den går til høyre.</li>
-                    <li>Pust inn med nesa; varier utpusten med nese eller munn. Fokuser mer på <em>roligere</em> enn <em>mer</em> pust.</li>
-                    <li>La følelsene komme – gjesp, gråt, smil og latter er vanlige og frigjørende responser.</li>
-                    <li>Øv på magepust uten å presse. Det tar tid å styrke pustemuskler og mellomgulv (søk “belly breathing/diaphragm breathing”).</li>
-                    <li>Avslutt med å tenke på noen du er glad i, før du åpner øynene og tar inn øyeblikket.</li>
-                </ul>
-                <p>
-                    Som komponist, ektemann og far til tre jenter må jeg ofte nullstille hodet og finne fokus. Uten denne metoden vet jeg ikke hvordan livet hadde vært.
-                    Jeg håper den gjør godt – laget med kjærlighet, Øyvind.
-                </p>
-                <div class="quote-block" style="margin-top:16px;">
+                <div class="hidden-text">
                     <p>
-                        Vil du prøve en personlig favoritt? Hør
-                        <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener"><strong><em>6:3 to 20:10</em></strong></a>
-                        fra albumet <em>Slow Breathing Meditation</em>. Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
-                        Stopp gjerne når det føles riktig, og nyt roen som oppstår.
+                        Jeg skjønte at pustemønsteret mitt kunne forhindre at det skjedde igjen, så jeg lagde musikk med et fast og sakte pustemønster.
+                        Nå hadde jeg en utvei og en strategi for neste gang det kunne skje.
+                        Angst for angsten er en utrolig ubehagelig tilstand, men når man har en utvei, blir det mye lettere.
                     </p>
+                    <p>
+                        Konseptet fungerte så bra at jeg etter kort tid fikk det innarbeidet i hverdagen, og jeg fortsatte livet som vanlig.
+                        Noen år senere slet noen nær meg, og jeg laget det første albumet med pustemusikk:
+                        <a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF?si=yXBtyN1xQfOBf5um-FMzow" target="_blank" rel="noopener"><em>5 Stille Moments</em></a>.
+                        Det var magi.
+                    </p>
+                    <p>
+                        Etter den oppdagelsen ble jeg kjent med blant annet Anette Aarsland, og jeg har laget mange timer med pustemusikk både for hennes øvelser og for mine egne.
+                        Metoden er alltid den samme:
+                    </p>
+                    <ul>
+                        <li>Bruk hodetelefoner</li>
+                        <li>Legg deg ned eller sitt komfortabelt</li>
+                        <li>Trykk på play og følg musikken med pusten</li>
+                        <li>Pust inn når lyden kommer inn fra venstre side og ut når den går ut til høyre</li>
+                        <li>Pust inn med nesa – varier gjerne utpusten</li>
+                        <li>Fokuser ikke på mengde luft, men på å puste saktere</li>
+                        <li>La følelsene komme – gråt, gjesp, smil, le – alt er frigjøring</li>
+                        <li>Øv på å puste med magen uten å presse – det tar tid</li>
+                        <li>Avslutt med å tenke på noen du er glad i, og kjenn etter hvordan du har det</li>
+                    </ul>
+                    <p>
+                        Som komponist, ektemann og far til tre jenter må jeg ofte resette hodet mitt og finne tilbake til ro og fokus.
+                        Uten denne metoden vet jeg ikke hvordan livet ville vært.
+                    </p>
+                    <p><strong>Håper det gjør deg godt.<br>Laget med kjærlighet,<br>Øyvind</strong></p>
                 </div>
+                <button class="toggle-btn" aria-expanded="false">Vis mer</button>
+            </div>
+
+            <!-- FREMTIDSVISJON -->
+            <div class="expandable-text" style="margin-top:50px;">
+                <h3>Breathing Cycles’ fremtidsvisjon</h3>
+                <p>
+                    Breathing Cycles ble til etter en erfaring jeg aldri glemmer – da jeg for første gang kjente et panikkanfall og oppdaget hvordan pusten kunne gi meg kontrollen tilbake.
+                </p>
+                <div class="hidden-text">
+                    <p>
+                        Musikken ble et verktøy for å finne ro, og over tid ble det et helt konsept – et språk mellom pust og lyd som hjelper kroppen å huske at den kan finne tilbake til balanse.
+                    </p>
+                    <p>
+                        Gjennom årene har pustemusikken hjulpet både meg selv og mange andre – barn, elever, terapeuter og mennesker som bare trengte et lite anker midt i alt som går fort.
+                        Alt jeg lager i dag, springer ut fra den samme intensjonen: å gjøre ro tilgjengelig for alle, uten kostnad, uten krav.
+                    </p>
+                    <p>
+                        Fremtiden for Breathing Cycles handler ikke om å lage flere apper eller skjermer, men om å bruke teknologien klokt – til å gi mennesker mer tid til å leve, skape og puste.
+                        Jeg tror kunst, musikk, jord og fellesskap er det som skal bære oss videre.
+                        Og hvis dette prosjektet kan bidra til at noen finner litt mer ro i hverdagen, så har det allerede gjort det det kom hit for å gjøre.
+                    </p>
+
+                    <div class="quote-block personal-fav">
+                        <p>
+                            Om du vil prøve én av mine personlige favoritter, anbefaler jeg
+                            <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener">
+                                <strong><em>6:3 to 20:10</em></strong>
+                            </a>
+                            fra albumet <em>Slow Breathing Meditation</em>.
+                            Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
+                            Du kan stoppe når det føles riktig, og bare nyte roen som oppstår underveis.
+                        </p>
+                    </div>
+                </div>
+                <button class="toggle-btn" aria-expanded="false">Vis mer</button>
             </div>
         </div>
     </section>
@@ -727,6 +812,20 @@
         ]
     }
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll(".toggle-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const parent = btn.closest(".expandable-text");
+          const hidden = parent.querySelector(".hidden-text");
+          const expanded = btn.getAttribute("aria-expanded") === "true";
 
+          hidden.style.display = expanded ? "none" : "block";
+          btn.textContent = expanded ? "Vis mer" : "Vis mindre";
+          btn.setAttribute("aria-expanded", !expanded);
+        });
+      });
+    });
+</script>
 </body>
 </html>
