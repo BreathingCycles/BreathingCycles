@@ -310,9 +310,8 @@
             <!-- HVA ER PUSTEMUSIKK -->
             <div class="expandable-text">
                 <h3>Hva er pustemusikk</h3>
-                <p>
-                    Pustemusikk er et konsept jeg lagde for mange år siden, etter å ha opplevd mitt første panikkanfall.
-                </p>
+                <p>Pustemusikk er et konsept jeg lagde for mange år siden, etter å ha opplevd mitt første panikkanfall.</p>
+
                 <div class="hidden-text">
                     <p>
                         Jeg skjønte at pustemønsteret mitt kunne forhindre at det skjedde igjen, så jeg lagde musikk med et fast og sakte pustemønster.
@@ -346,16 +345,30 @@
                     </p>
                     <p><strong>Håper det gjør deg godt.<br>Laget med kjærlighet,<br>Øyvind</strong></p>
                 </div>
-                <button class="toggle-btn" aria-expanded="false">Vis mer</button>
+
+                <button class="toggle-btn" aria-expanded="false" onclick="toggleText(this)">Vis mer</button>
             </div>
 
             <!-- FREMTIDSVISJON -->
-            <div class="expandable-text" style="margin-top:50px;">
+            <div class="expandable-text">
                 <h3>Breathing Cycles’ fremtidsvisjon</h3>
-                <p>
-                    Breathing Cycles ble til etter en erfaring jeg aldri glemmer – da jeg for første gang kjente et panikkanfall og oppdaget hvordan pusten kunne gi meg kontrollen tilbake.
-                </p>
+
+                <!-- Første setning synlig -->
+                <p>En gang var pustemusikk en løsning på en personlig krise.</p>
+
+                <!-- Vis mer-knapp etter første setning -->
+                <button class="toggle-btn" aria-expanded="false" onclick="toggleText(this)">Vis mer</button>
+
+                <!-- Resten skjules til man klikker -->
                 <div class="hidden-text">
+                    <p>
+                        Nå har den blitt et svar på noe langt større – et behov som finnes i oss alle.
+                        Breathing Cycles startet som et enkelt verktøy for å finne ro, men har vokst til et prosjekt som undersøker hvordan lyd, pust og teknologi kan brukes til å skape balanse i livene våre.
+                    </p>
+                    <p>
+                        Det handler ikke lenger bare om å roe ned, men om å huske hvordan vi henger sammen – kropp, sinn, lyd og pust.
+                        Fremtiden for pustemusikken handler om å bygge broer mellom kunst og vitenskap, mellom mennesker og teknologi, mellom det ytre og det indre.
+                    </p>
                     <p>
                         Musikken ble et verktøy for å finne ro, og over tid ble det et helt konsept – et språk mellom pust og lyd som hjelper kroppen å huske at den kan finne tilbake til balanse.
                     </p>
@@ -368,36 +381,29 @@
                         Jeg tror kunst, musikk, jordbruk, natur og fellesskap er det som skal bære oss videre.
                         Og hvis dette prosjektet kan bidra til at noen finner litt mer ro i hverdagen, så har det allerede gjort det det kom hit for å gjøre.
                     </p>
-                    <p>
-                        <br>
+
                     <div style="background:#f0f8f9;border-left:4px solid var(--accent);padding:16px 20px;border-radius:12px;margin-top:20px;">
                         <p>
-                            -Og kanskje er dette bare begynnelsen.<br>
+                            Og kanskje er dette bare begynnelsen.<br>
                             Pustemusikken har etter hvert fått et fysisk hjem – en installasjon der lyden kan kjennes like mye som den høres.<br>
                             I dette lille pusterommet står tiden nesten stille.<br>
                             Investorer med hjerte – og kanskje også med smerte – er velkomne til å ta kontakt.<br>
                             For smertelindring når medisinen ikke virker, eller ikke er ønskelig – det er nettopp det jeg arbeider med nå.
                         </p>
                     </div>
-                    </p>
 
-                    <div class="quote-block personal-fav">
+                    <div class="quote-block" style="margin-top:20px;">
                         <p>
-
                             Om du vil prøve én av mine personlige favoritter, anbefaler jeg
-                            <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener">
-                                <strong><em>6:3 to 20:10</em></strong>
+                            <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" rel="noopener" style="font-weight:600; color:var(--accent);">
+                                <em>6:3 to 20:10</em>
                             </a>
-                            fra albumet <em>Slow Breathing Meditation</em>.
-                            Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
-                            Du kan stoppe når det føles riktig, og bare nyte roen som oppstår underveis.
+                            fra albumet <em>Slow Breathing Meditation</em>. Sporet leder deg gradvis fra en naturlig pusterytme til dyp, langsom pust – ned mot to pust i minuttet.
+                            Det krever litt øvelse å følge hele reisen uten anstrengelse, så du kan gjerne stoppe når det føles riktig, og bare nyte roen som oppstår underveis.
                         </p>
                     </div>
                 </div>
-                <button class="toggle-btn" aria-expanded="false">Vis mer</button>
             </div>
-        </div>
-    </section>
 
     <!-- LÆR -->
     <section class="section" id="learn">
