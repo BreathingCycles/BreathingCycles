@@ -90,6 +90,20 @@
     footer{background:var(--accent);color:#e9fbff;text-align:center;padding:40px 0}
     footer a{color:#e9fbff;text-decoration:underline}
     :where(section[id]){scroll-margin-top:var(--anchor-offset)}
+    .hidden-text {
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.expandable-text.open .hidden-text,
+.card.open .hidden-text {
+  display: block;
+  opacity: 1;
+  max-height: 2000px; /* nok plass for hele teksten */
+}
   </style>
 </head>
 <body>
@@ -490,6 +504,20 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.setAttribute("aria-expanded", !expanded);
         btn.textContent = expanded ? showText : hideText;
       }
+    });
+  });
+});
+</script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".toggle-btn");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".expandable-text, .card");
+      card.classList.toggle("open");
+      const expanded = card.classList.contains("open");
+      btn.setAttribute("aria-expanded", expanded);
+      btn.textContent = expanded ? "Read less" : "Read more";
     });
   });
 });
