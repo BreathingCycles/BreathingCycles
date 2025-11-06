@@ -934,5 +934,28 @@
     }
   })();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const isEnglish = window.location.pathname.includes("/en/");
+  const showText = isEnglish ? "Read more" : "Vis mer";
+  const hideText = isEnglish ? "Show less" : "Vis mindre";
+
+  document.querySelectorAll(".toggle-btn, .show-more").forEach(btn => {
+    btn.textContent = showText;
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      const hiddenText = btn.previousElementSibling?.classList.contains("hidden-text")
+        ? btn.previousElementSibling
+        : btn.nextElementSibling;
+
+      if (hiddenText) {
+        hiddenText.style.display = expanded ? "none" : "block";
+        btn.setAttribute("aria-expanded", !expanded);
+        btn.textContent = expanded ? showText : hideText;
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
