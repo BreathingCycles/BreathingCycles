@@ -1,8 +1,7 @@
-<!-- START ENGLISH VERSION -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <!-- Multilingual hreflang tags -->
   <link rel="alternate" hreflang="no" href="https://breathingcycles.com/" />
   <link rel="alternate" hreflang="en" href="https://breathingcycles.com/en/" />
@@ -11,246 +10,103 @@
   <title>Breathing Cycles – Music for Calm, Focus and Balance</title>
 
   <!-- SEO -->
-  <meta name="description" content="Breathing Cycles by Øyvind Blikstad – music that guides your breath, lowers stress, and activates the vagus nerve. Free breathing training with Spotify and YouTube.">
-  <meta name="keywords" content="breathing cycles, breathing music, vagus nerve, relaxation, mindfulness, calm breathing, Øyvind Blikstad, breathing technique, parasympathetic activation">
-  <meta name="author" content="Øyvind Blikstad">
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#2b6777">
+  <meta name="description" content="Breathing Cycles by Øyvind Blikstad – music that guides your breath, lowers stress and activates the vagus nerve. Free on Spotify and YouTube." />
+  <meta name="keywords" content="breathing music, vagus nerve, stress reduction, mindfulness, slow breathing, HRV, relaxation, Øyvind Blikstad" />
+  <meta name="author" content="Øyvind Blikstad" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#2b6777" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Breathing Cycles – Music for Calm, Focus and Balance">
-  <meta property="og:description" content="Music that helps you slow your breath, reduce stress and find inner calm.">
-  <meta property="og:image" content="https://breathingcycles.com/images/preview.jpg">
-  <meta property="og:url" content="https://breathingcycles.com/en/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="nb_NO">
+  <meta property="og:title" content="Breathing Cycles – Music for Calm, Focus and Balance" />
+  <meta property="og:description" content="Music that helps you breathe slower, reduce stress and find balance." />
+  <meta property="og:image" content="https://breathingcycles.com/images/preview.jpg" />
+  <meta property="og:url" content="https://breathingcycles.com/en/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="nb_NO" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Breathing Cycles – Music for Calm, Focus and Balance">
-  <meta name="twitter:description" content="Breathing music that guides your rhythm and activates the vagus nerve.">
-  <meta name="twitter:image" content="https://breathingcycles.com/images/preview.jpg">
-  <link rel="canonical" href="https://breathingcycles.com/en/">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Preconnect fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Styles and Google Translate as on Norwegian page -->
-  <!-- (Identical CSS preserved for design consistency) -->
   <style>
-      :root{
-          --bg:#f4f8fb; --card:#fff; --ink:#1c2b33; --muted:#5f7a85;
-          --accent:#2b6777; --accent-2:#56a3b5; --highlight:#eef6fb;
-          --radius-lg:18px; --shadow-sm:0 4px 14px rgba(25,63,76,.08);
-          --shadow-md:0 10px 24px rgba(25,63,76,.12); --max:1100px;
-          --anchor-offset:140px;
-        }
-        @media (min-width:900px){ :root{--anchor-offset:100px;} }
+    :root {
+      --bg:#f4f8fb; --card:#fff; --ink:#1c2b33; --muted:#5f7a85;
+      --accent:#2b6777; --accent-2:#56a3b5; --highlight:#eef6fb;
+      --radius-lg:18px; --shadow-sm:0 4px 14px rgba(25,63,76,.08);
+      --shadow-md:0 10px 24px rgba(25,63,76,.12);
+      --max:1100px; --anchor-offset:140px;
+    }
+    @media (min-width:900px){ :root{--anchor-offset:100px;} }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      background:var(--bg); color:var(--ink); line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:50;background:var(--card);box-shadow:0 2px 10px rgba(25,63,76,.06)}
+    .nav{max-width:var(--max);margin:0 auto;padding:14px 16px;
+      display:flex;align-items:center;gap:12px;justify-content:space-between;overflow-x:auto;white-space:nowrap}
+    .brand{font-weight:700;color:var(--accent);white-space:nowrap}
+    nav ul{display:flex;gap:18px;margin:0;padding:0;list-style:none}
+    nav a{color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--accent)}
+    .lang-switch{display:flex;gap:8px;font-size:.9rem;color:var(--muted)}
+    .lang-switch a{color:var(--accent);font-weight:600}
+    .lang-switch a:hover{text-decoration:underline}
 
-        *{box-sizing:border-box}
-        html,body{margin:0;padding:0;height:100%;overflow-x:hidden}
-        html{scroll-behavior:smooth;}
-        body{
-          font-family:Inter,system-ui,sans-serif;
-          color:var(--ink); background:var(--bg); line-height:1.6;
-          -webkit-font-smoothing:antialiased;
-        }
-        a{color:var(--accent);text-decoration:none}
-        a:hover{text-decoration:underline}
+    .section{padding:80px 22px}
+    .section.light{background:var(--card)}
+    .section.highlight{background:var(--highlight)}
+    .container{max-width:var(--max);margin:0 auto}
+    h1{margin:0 0 10px;font-size:clamp(1.9rem,4vw,3rem)}
+    h2{margin:0 0 10px;font-size:clamp(1.6rem,3vw,2.3rem)}
+    .lead{color:var(--muted);max-width:760px;margin:0 0 34px}
+    .hero{display:grid;gap:40px;align-items:center;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:none;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm)}
+    .btn-primary{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .btn-secondary{background:#e7f3f7;color:var(--accent)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px}
+    .video{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);background:#000}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .grid-2{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+    .grid-3{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .grid-4{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .grid-music{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm)}
+    .card h3{color:var(--accent)}
+    .quote-block{border-left:4px solid var(--accent);background:var(--highlight);padding:16px 20px;border-radius:12px;margin-top:18px}
+    footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center}
 
-        /* Skip link (tilgjengelighet) */
-        .skip-link{
-          position:absolute; left:-999px; top:auto; width:1px; height:1px;
-          overflow:hidden; z-index:200; color:#fff; background:var(--accent);
-          padding:12px 18px; border-radius:999px;
-        }
-        .skip-link:focus{ left:50%; top:12px; width:auto; height:auto; transform:translateX(-50%); }
-
-        /* Sticky header */
-        header{
-          position:sticky; top:0; z-index:50; background:var(--card);
-          box-shadow:0 2px 10px rgba(25,63,76,.06);
-          transition:transform .3s ease, box-shadow .3s ease;
-        }
-        header.visible{ box-shadow:0 4px 12px rgba(0,0,0,.12); }
-
-        /* Hovedmeny – én linje, horisontal scroll + hint */
-        .nav{
-          max-width:var(--max); margin:0 auto; padding:14px 16px;
-          display:flex; align-items:center; gap:12px; justify-content:space-between;
-          position:relative; overflow-x:auto; white-space:nowrap;
-          scrollbar-width:none; -webkit-overflow-scrolling:touch;
-        }
-        .nav::-webkit-scrollbar{ display:none; }
-        .nav::before, .nav::after{
-          content:""; position:absolute; top:0; bottom:0; width:40px; pointer-events:none;
-          transition:opacity .3s ease;
-        }
-        .nav::before{ left:0; background:linear-gradient(to right,var(--card) 40%,transparent); }
-        .nav::after{ right:0; background:linear-gradient(to left,var(--card) 40%,transparent); }
-        .nav.scrolled-left::before{ opacity:0; }
-        .nav.scrolled-right::after{ opacity:0; }
-
-        .brand{
-          font-weight:700; color:var(--accent); white-space:nowrap; flex-shrink:0;
-        }
-        nav{ flex:1 1 auto; overflow-x:auto; white-space:nowrap; }
-        nav ul{ margin:0; padding:0; list-style:none; display:flex; gap:18px; }
-        nav li{ flex:0 0 auto; }
-        nav a{ color:var(--muted); font-weight:600; }
-        nav a:hover{ color:var(--accent); }
-
-        /* Translate bar (ikke sticky) */
-        #translate-bar{
-          background:var(--card); box-shadow:0 1px 6px rgba(25,63,76,.06);
-          position:relative; z-index:40;
-        }
-        .translate-row{
-          max-width:var(--max); margin:0 auto; padding:6px 22px 10px; text-align:right;
-        }
-        #google_translate_element select{
-          background:#fff; border:1px solid #c6d7dc; border-radius:6px;
-          padding:4px 6px; font-size:.9rem; color:var(--accent);
-        }
-        @media (max-width:720px){
-          .translate-row{ text-align:center; padding:8px 10px; }
-          .nav{ padding:12px; gap:10px; justify-content:flex-start; }
-          nav ul{ gap:12px; }
-        }
-
-        /* Anker-landing pent under header + translate */
-        :where(section[id], #learning-video, #livsmestring){ scroll-margin-top:var(--anchor-offset); }
-        :target::before{
-          content:""; display:block; height:120px; margin-top:-120px; visibility:hidden;
-        }
-
-        /* Innhold */
-        main{overflow-x:hidden;}
-        .section{padding:80px 22px;}
-        .section.light{background:var(--card);}
-        .section.highlight{background:var(--highlight);}
-        .container{max-width:var(--max);margin:0 auto;}
-        h1{margin:0 0 10px;font-size:clamp(1.9rem,4vw,3rem);}
-        h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 10px;}
-        .lead{color:var(--muted);max-width:760px;margin:0 0 34px;}
-        .hero{display:grid;gap:40px;align-items:center;
-          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-        .tagline{display:inline-block;background:#d5f3f7;padding:6px 12px;border-radius:999px;font-weight:600;color:var(--accent);}
-        .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:none;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);}
-        .btn-primary{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
-        .btn-secondary{background:#e7f3f7;color:var(--accent);}
-        .cta{display:flex;flex-wrap:wrap;gap:12px;}
-        .video{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);background:#000;}
-        .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-        .grid-2{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
-        .grid-3{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-        .grid-4{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-        .grid-music{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-        .card{background:var(--card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);}
-        .card h3{color:var(--accent);}
-        .spotify-icon{width:18px;vertical-align:middle;margin-right:6px;}
-        .quote-block{border-left:4px solid var(--accent);background:var(--highlight);padding:16px 20px;border-radius:12px;margin-top:18px;}
-        .quote-block p{margin:0;}
-        .section-heading{margin-top:56px;}
-        .share-actions{margin:20px 0;text-align:center;display:flex;flex-direction:column;gap:10px;}
-        .support-follow{text-align:center;margin-top:26px;}
-        .donation-note{text-align:center;}
-        .donation-heading{margin-top:12px;font-weight:600;}
-        .muted-list{margin:10px 0 0 18px;color:#5f7a85;}
-        .muted-note{color:#5f7a85;margin-top:6px;}
-
-        footer{background:var(--accent);color:#e9fbff;padding:40px 22px;text-align:center;}
-        .expandable-text {
-  position: relative;
-  margin-top: 18px;
-  line-height: 1.7;
-  color: var(--ink);
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 22px;
-  max-width: 800px;
-}
-
-.expandable-text h3 {
-  color: var(--accent);
-  margin-top: 0;
-}
-
-.hidden-text {
-  display: none;
-  margin-top: 10px;
-}
-
-.toggle-btn {
-  background: none;
-  border: none;
-  color: var(--accent);
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 12px;
-  padding: 0;
-  transition: color 0.2s ease;
-}
-
-.toggle-btn:hover {
-  color: var(--accent-2);
-}
-
-.quote-block.personal-fav {
-  border-left: 4px solid var(--accent);
-  background: var(--highlight);
-  padding: 16px 20px;
-  border-radius: 12px;
-  margin-top: 18px;
-  font-style: italic;
-  color: #355c64;
-  line-height: 1.8;
-}
-.lang-switch {
-  display: flex;
-  gap: 8px;
-  font-size: .9rem;
-  color: var(--muted);
-}
-.lang-switch a {
-  color: var(--accent);
-  font-weight: 600;
-}
-.lang-switch a:hover {
-  text-decoration: underline;
-}  
+    .expandable-text{position:relative;margin-top:18px;line-height:1.7;color:var(--ink);background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;max-width:800px}
+    .expandable-text h3{color:var(--accent);margin-top:0}
+    .hidden-text{display:none;margin-top:10px}
+    .toggle-btn{background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;margin-top:12px;padding:0;transition:color .2s ease}
+    .toggle-btn:hover{color:var(--accent-2)}
   </style>
 </head>
-
 <body>
-<!-- Translate bar -->
-<div id="translate-bar">
-  <div class="translate-row">
-    <div id="google_translate_element"></div>
-  </div>
-</div>
 
 <header>
-  <div class="nav" id="top-nav">
+  <div class="nav">
     <a href="#hero" class="brand">Breathing Cycles</a>
-    <nav>
+    <nav aria-label="Main navigation">
       <ul>
         <li><a href="#story">About</a></li>
-        <li><a href="#learn">Learn</a></li>
-        <li><a href="#practice-guide">Guide</a></li>
+        <li><a href="#learn">How to Breathe</a></li>
+        <li><a href="#practice">Guide</a></li>
         <li><a href="#library">Music Library</a></li>
         <li><a href="#support">Support</a></li>
       </ul>
     </nav>
-    <div class="lang-switch">
-      <a href="/">NO</a> · <strong>EN</strong>
-    </div>
+    <div class="lang-switch"><a href="/">NO</a> · <strong>EN</strong></div>
   </div>
 </header>
 
@@ -259,19 +115,20 @@
   <section class="section highlight" id="hero">
     <div class="container hero">
       <div>
-        <span class="tagline">Music-driven breathing practice</span>
-        <h1>Find calm — one breathing cycle at a time</h1>
+        <span class="btn-secondary" style="padding:6px 12px;border-radius:999px;font-weight:600;">Music-guided breathing</span>
+        <h1>Find calm — one breath cycle at a time</h1>
         <p class="lead">
-          Breathing Cycles is a free library of music that guides you toward slower breathing, a lower pulse, and a clearer mind.  
-          Used in schools, therapy, sports, and daily life around the world.
+          Breathing Cycles is a free music library designed to slow your breath, activate the vagus nerve and bring body-mind balance. Used in schools, therapy and daily life worldwide.
         </p>
         <div class="cta">
-          <a class="btn btn-primary" href="#library">Start listening</a>
-          <a class="btn btn-secondary" href="#learn">Learn the technique</a>
+          <a class="btn btn-primary" href="#library">Start Listening</a>
+          <a class="btn btn-secondary" href="#learn">Learn the Technique</a>
         </div>
       </div>
-      <div class="video">
-        <iframe loading="lazy" src="https://www.youtube.com/embed/YLr0dGt95i8" title="Introduction to Breathing Cycles" allowfullscreen></iframe>
+      <div>
+        <div class="video" aria-label="Introduction video">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/YLr0dGt95i8" title="Breathing Cycles – Introduction" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -279,17 +136,17 @@
   <!-- ABOUT -->
   <section class="section light" id="story">
     <div class="container">
-      <h2>Built on Research, Rooted in Practice</h2>
+      <h2>Built on research, grounded in practice</h2>
       <p class="lead">
-        The tempo of the music intuitively guides you through inhalation, pause, and exhalation — a simple yet powerful method to regulate your nervous system.
+        The tempo and stereo motion guide you through inhale – hold – exhale. Simple, intuitive and powerful for daily regulation.
       </p>
       <div class="grid-3">
-        <div class="card"><h3>1.5M+</h3><p>Streams on Spotify and YouTube.</p></div>
-        <div class="card"><h3>Curriculum Use</h3><p>Integrated in Norwegian schools to teach awareness and safe breathing practice.</p></div>
-        <div class="card"><h3>In the Media</h3>
+        <div class="card"><h3>1.5 M +</h3><p>Streams across Spotify and YouTube.</p></div>
+        <div class="card"><h3>Used in education</h3><p>Teaches presence and safe breathing to students.</p></div>
+        <div class="card"><h3>In the media</h3>
           <p>
-            <a href="https://www.nrk.no/innlandet/xl/med-pustemusikk-og-pusteklinikk-laerer-dei-andre-a-puste-1.14815855" target="_blank">NRK article</a><br>
-            <a href="https://radio.nrk.no/podkast/ekko_-_et_aktuelt_samfunnsprogram/sesong/202001/l_137f406a-2193-43ea-bf40-6a2193d3ea66" target="_blank">EKKO podcast</a>
+            <a href="https://www.nrk.no/innlandet/xl/med-pustemusikk-og-pusteklinikk-laerer-dei-andre-a-puste-1.14815855" target="_blank">NRK Article</a><br>
+            <a href="https://radio.nrk.no/podkast/ekko_-_et_aktuelt_samfunnsprogram/sesong/202001/l_137f406a-2193-43ea-bf40-6a2193d3ea66" target="_blank">EKKO Podcast</a>
           </p>
         </div>
       </div>
@@ -297,79 +154,77 @@
       <!-- WHAT IS BREATHING MUSIC -->
       <div class="expandable-text">
         <h3>What is Breathing Music</h3>
-        <p>Breathing Music began years ago, after I experienced my first panic attack.</p>
+        <p>It began many years ago, after I experienced my first panic attack.</p>
         <div class="hidden-text">
           <p>
-            I realized that by consciously adjusting my breathing pattern, I could prevent it from happening again.  
-            I began composing music with a slow, steady rhythm — a sonic anchor to guide my breath whenever anxiety arose.
+            I discovered that by changing my breathing pattern, I could stop it from returning. I composed music with a steady, slow rhythm — a musical anchor to guide my breath whenever anxiety appeared.
           </p>
           <p>
-            The concept worked so well it became part of my daily life.  
-            Later, when someone close to me was struggling, I created my first breathing music album:
+            Later, someone close to me was struggling, and I created my first album of breathing music,
             <a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF" target="_blank"><em>5 Stille Moments</em></a>. It was pure magic.
           </p>
           <p>
-            Since then I’ve collaborated with, among others, <strong>Anette Aarsland</strong>, and composed many hours of breathing music — for her exercises and my own.  
-            The method is always the same:
+            Since then I’ve collaborated with several therapists and teachers to create many hours of music for breathing practice. The method is always the same:
           </p>
           <ul>
             <li>Use headphones</li>
             <li>Lie down or sit comfortably</li>
             <li>Press play and let the music guide your breath</li>
-            <li>Inhale as the sound moves from left to right</li>
-            <li>Breathe through your nose, exhale naturally</li>
-            <li>Focus not on taking in more air, but on breathing slower</li>
+            <li>Inhale as the sound moves from left to right; exhale as it flows back</li>
+            <li>Breathe through your nose; let the exhale be soft and natural</li>
+            <li>Don’t focus on taking more air — just slow down</li>
             <li>Let emotions come — tears, yawns, smiles, laughter — all are release</li>
-            <li>Practice gentle belly breathing — it takes time to strengthen the diaphragm</li>
-            <li>When finished, think of someone you love, and notice how you feel now</li>
+            <li>Practice gentle belly breathing; it takes time to strengthen the diaphragm</li>
+            <li>End by thinking of someone you care about and notice how you feel</li>
           </ul>
           <p>
-            As a composer, husband, and father of three daughters, I often need to reset my mind and find focus again.  
-            Without this method, I’m not sure where life would have led me.
+            As a composer, husband and father of three daughters, I often need to reset my mind and find focus again. Without this method, I don’t know where life would have led me.
           </p>
           <p><strong>Made with love,<br>Øyvind</strong></p>
         </div>
         <button class="toggle-btn" aria-expanded="false">Read more</button>
       </div>
-
-      <!-- FUTURE -->
+            <!-- THE FUTURE OF BREATHING CYCLES -->
       <div class="expandable-text">
         <h3>The Future of Breathing Cycles</h3>
-        <p>Once, Breathing Music was a way out of a personal crisis.</p>
-        <button class="toggle-btn" aria-expanded="false">Read more</button>
+        <p>Once, Breathing Music was simply a way out of a personal crisis.</p>
         <div class="hidden-text">
           <p>
-            Today it has grown into something much larger — a shared human need.  
-            Breathing Cycles began as a tool for inner calm but has evolved into an exploration of how sound, breath, and technology can restore balance in our lives.
+            Today it has grown into something much larger — a response to a shared human need.
+            Breathing Cycles began as a simple tool for inner calm, but has evolved into a project exploring how
+            sound, breath and technology can work together to restore balance in modern life.
           </p>
           <p>
-            It’s no longer just about slowing down; it’s about remembering how we are connected — body, mind, sound, and breath.  
-            The future lies in bridging art and science, people and technology, the outer and inner worlds.
+            It’s no longer just about slowing down; it’s about remembering how we are connected —
+            body, mind, sound and breath.
+            The future of Breathing Cycles is about building bridges between art and science,
+            people and technology, the outer and inner worlds.
           </p>
           <p>
-            Technology should not distance us from life — it should bring us closer to it.  
-            I believe that art, music, nature, and community will guide us forward.  
-            If this project helps even one person find peace, it has already fulfilled its purpose.
+            Technology shouldn’t distance us from life — it should bring us closer to it.
+            I believe that art, music, nature and community are what will guide us forward.
+            If this project helps even one person find a moment of peace, it has already fulfilled its purpose.
           </p>
-          <div style="background:#f0f8f9;border-left:4px solid var(--accent);padding:16px 20px;border-radius:12px;margin-top:20px;">
+          <div class="quote-block">
             <p>
-              And perhaps this is just the beginning.<br>
-              Breathing Music now has a physical home — an installation where sound can be felt as much as heard.<br>
+              Perhaps this is only the beginning.<br>
+              Breathing Music now has a physical home — an installation where sound is felt as much as it is heard.<br>
               Inside this small breathing space, time nearly stands still.<br>
               Investors with both heart — and perhaps pain — are welcome to get in touch.<br>
-              For relief where medicine does not reach — that is what I’m working on now.
+              For relief where medicine doesn’t reach or isn’t desired — that’s what I’m working on now.
             </p>
           </div>
-          <div class="quote-block personal-fav">
+          <div class="quote-block">
             <p>
-              If you’d like to experience one of my personal favorites, try  
-              <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank"><em>6:3 to 20:10</em></a>  
-              from the album <em>Slow Breathing Meditation</em>.  
-              It gently leads you from a natural rhythm to deep, slow breathing — down to two breaths per minute.  
-              Stop whenever it feels right, and simply rest in the calm that follows.
+              If you’d like to experience one of my personal favorites, try
+              <a href="https://open.spotify.com/track/6jAZptHfoZdT6fJ41rjkLX" target="_blank" style="font-weight:600;color:var(--accent);"><em>6:3 to 20:10</em></a>
+              from the album <em>Slow Breathing Meditation</em>.
+              It gradually guides you from a natural breathing rhythm to deep, slow breathing — down to two breaths per minute.
+              Stop whenever it feels right, and enjoy the calm that follows.
             </p>
           </div>
         </div>
+        <button class="toggle-btn" aria-expanded="false">Read more</button>
       </div>
     </div>
   </section>
@@ -378,100 +233,74 @@
   <section class="section" id="learn">
     <div class="container">
       <h2>Learn the Technique</h2>
-      <p class="lead">Put on headphones. Inhale through your nose, exhale through your mouth. Let the music set the pace.</p>
+      <p class="lead">Headphones on. Inhale through your nose, exhale softly through your mouth. Let the music set the rhythm.</p>
       <div class="grid-3">
-        <div class="card"><h3>1. Awareness</h3><p>Place a hand on your belly and feel the movement as you breathe.</p></div>
-        <div class="card"><h3>2. Choose your rhythm</h3><p>Select a playlist that matches your goal. The tempo guides your breath.</p></div>
-        <div class="card"><h3>3. Follow the pattern</h3><p>Breathe with the flow. Start with 3–5 minutes and increase gradually.</p></div>
+        <div class="card"><h3>1) Awareness</h3><p>Place a hand on your belly and feel it rise and fall as you breathe.</p></div>
+        <div class="card"><h3>2) Choose your rhythm</h3><p>Select a playlist matching your goal — reset, unwind, or sleep. Let the tempo guide you.</p></div>
+        <div class="card"><h3>3) Follow and grow</h3><p>Breathe with the stereo movement. Start with 3–5 minutes and increase naturally.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- TECHNIQUES -->
-  <section class="section highlight" id="techniques">
+  <!-- PRACTICE VIDEOS -->
+  <section class="section highlight" id="practice">
     <div class="container">
-      <h2>Music That Guides the Breath</h2>
-      <p class="lead">From quick resets to deep rest — play directly here or open in Spotify.</p>
+      <h2>How the Music Guides the Breath</h2>
+      <p class="lead">From quick resets to deep sleep preparation. Click to listen on Spotify, or play directly below.</p>
       <div class="grid-2">
         <div class="card">
           <h3>Quick Reset (3 min)</h3>
-          <p>Three minutes to regain calm and focus. Perfect before meetings or after activity.</p>
+          <p>Three minutes to restore focus and calm — ideal before meetings or transitions.</p>
           <p><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank">Listen on Spotify</a></p>
-          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/FvL9zF1L9Tg" allowfullscreen></iframe></div>
+          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/FvL9zF1L9Tg" title="Quick Reset – Breathing Cycles" allowfullscreen></iframe></div>
         </div>
+
         <div class="card">
           <h3>Vagus Breathing</h3>
-          <p>5 seconds in, 5 seconds out – balancing your nervous system.</p>
+          <p>5 seconds in, 5 seconds out – balances the nervous system in 10 minutes.</p>
           <p><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank">Listen on Spotify</a></p>
-          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/FSbJDAhLBD8" allowfullscreen></iframe></div>
+          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/FSbJDAhLBD8" title="Vagus Breathing" allowfullscreen></iframe></div>
         </div>
+
         <div class="card">
           <h3>4-7-8 for Sleep</h3>
-          <p>Inhale 4, hold 7, exhale 8 — clinically shown to reduce stress.</p>
+          <p>Inhale 4 – hold 7 – exhale 8 seconds. Clinically proven to reduce stress and heart rate.</p>
           <p><a href="https://open.spotify.com/track/3Zh38hPWsgWsG3w6OENL6o" target="_blank">Listen on Spotify</a></p>
-          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/WeK2Gi97sTo" allowfullscreen></iframe></div>
+          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/WeK2Gi97sTo" title="4-7-8 Sleep – Breathing Cycles" allowfullscreen></iframe></div>
         </div>
+
         <div class="card">
           <h3>Songbirds</h3>
-          <p>From <em>5 Stille Moments</em>. Soothing for children and adults alike.</p>
+          <p>From <em>5 Stille Moments</em>. Soothing for both children and adults – many babies fall asleep to it.</p>
           <p><a href="https://open.spotify.com/track/6JJzaGWNoukqNxumFJmNbJ" target="_blank">Listen on Spotify</a></p>
-          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/n6yUCzhpOGA" allowfullscreen></iframe></div>
+          <div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/n6yUCzhpOGA" title="Songbirds – Breathing Cycles" allowfullscreen></iframe></div>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- LIBRARY -->
-  <!-- (Translated as in Norwegian) -->
-
-  <!-- SUPPORT + MANIFEST same structure translated -->
-</main>
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Breathing Cycles</p>
-    <p>Created by <a href="https://obliks.wixsite.com/breathingcycles/about" target="_blank">Øyvind Blikstad Music Lab</a></p>
-    <p>
-      <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO" target="_blank">Spotify</a> •
-      <a href="https://www.facebook.com/breathingcycles" target="_blank">Facebook</a> •
-      <a href="mailto:oyvindblikstad@gmail.com">Contact</a>
-    </p>
-  </div>
-</footer>
-</body>
-</html>
-<!-- END ENGLISH VERSION -->
-<!-- CONTINUATION — ENGLISH VERSION PART 2 -->
 
   <!-- MUSIC LIBRARY -->
   <section class="section" id="library">
     <div class="container">
       <h2>Music Library</h2>
-      <p class="lead">Choose a category to find your rhythm.  
-      All playlists open in Spotify and are free to use in education, therapy, or personal practice.</p>
+      <p class="lead">Listen on Spotify or YouTube. Free for schools, therapy and personal practice.</p>
 
       <h3>Playlists</h3>
       <div class="grid-music">
-        <div class="card"><h4><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank">Ready in 3 min (Quick Fix)</a></h4><p>Quick reset for focus and clarity.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6" target="_blank">Reduce Stress</a></h4><p>Gentle grooves to help release tension.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ" target="_blank">Sleep (Deep Calm & Relax)</a></h4><p>Soft ambient layers for deep rest.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv" target="_blank">F*#% Anxiety</a></h4><p>From tension to grounding through sound.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/playlist/7pNyakwZyXuM7XRvgRUilX" target="_blank">Ready in 3 min (QuickFix)</a></h4><p>Fast reset for focus in minutes.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/playlist/5a8QsfocUfSVdvtizSAQJ6" target="_blank">Reduce Stress</a></h4><p>Soft grooves that release tension and ground you.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/playlist/0FDn6bdWS2ZJO0q7rwqWcQ" target="_blank">Sleep (Deep Calm & Relax)</a></h4><p>Drift toward sleep with slow textures.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/playlist/6rZKoYkiTG5slbIZM6RlGv" target="_blank">F*#% Anxiety</a></h4><p>Breathe first – then music. Regain your footing.</p></div>
       </div>
 
-      <h3 class="section-heading">Albums</h3>
+      <h3 style="margin-top:36px;">Albums</h3>
       <div class="grid-music">
-        <div class="card"><h4><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank">Vagus Breathing</a></h4><p>Activates the vagus nerve — deep calm.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I" target="_blank">Slow Breathing Meditation</a></h4><p>A holistic journey through slow cycles.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA" target="_blank">BREASE</a></h4><p>55 building blocks for your own playlist.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4" target="_blank">Inhale Hold Exhale</a></h4><p>Similar to 4-7-8 – after a long day.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk" target="_blank">Exhale Hold Inhale</a></h4><p>Trains slow controlled exhalation.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF" target="_blank">5 Stille Moments</a></h4><p>Five short breathing meditations.</p></div>
-      </div>
-
-      <h3 class="section-heading">Singles</h3>
-      <div class="grid-music">
-        <div class="card"><h4><a href="https://open.spotify.com/album/3mfUlK46KY8RMB1nHjMXjv" target="_blank">Breathe Out</a></h4><p>Breathing music meets pop.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/album/7vzBVBRI3aLjWCGKcmucm8" target="_blank">4-7-8</a></h4><p>Short track for classic 4-7-8 rhythm.</p></div>
-        <div class="card"><h4><a href="https://open.spotify.com/track/5gomJPJIQPPCnvs6qi6Ygo" target="_blank">Vagus Breathing – Let Go</a></h4><p>Warm textures for release and ease.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/5s2XpqSh18gM4p8EYSKa1A" target="_blank">Vagus Breathing</a></h4><p>Activates the vagus nerve for deep relaxation.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/2Hjkjg1A80ANdCx23MDy6I" target="_blank">Slow Breathing Meditation</a></h4><p>A journey through slow breath cycles.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/7JA9t4Mpn92iRKRLt7HXtA" target="_blank">BREASE</a></h4><p>55 building blocks to craft your own flow.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/5qZnE9zYCkCdeBU0VbzRl4" target="_blank">Inhale Hold Exhale</a></h4><p>Like 4-7-8 – for balance after a long day.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/6dCr5AFIkcgJLolKWtsaUk" target="_blank">Exhale Hold Inhale</a></h4><p>Train a softer, longer exhale.</p></div>
+        <div class="card"><h4><a href="https://open.spotify.com/album/6qFUDv3tcfTMfFn0rUxDBF" target="_blank">5 Stille Moments</a></h4><p>The first breathing-music album.</p></div>
       </div>
     </div>
   </section>
@@ -480,63 +309,43 @@
   <section class="section highlight" id="support">
     <div class="container">
       <h2>Support the Vision</h2>
-      <p class="lead">Breathing Cycles is free. Share it or donate if you wish to support its growth.</p>
-
+      <p class="lead">Breathing Cycles is free. Sharing helps it grow – and donations are welcome.</p>
       <div class="grid-3">
         <div class="card">
-          <h3>Share and Support</h3>
-          <p>Every share helps someone discover music for calm, focus and better sleep.</p>
-          <div class="share-actions">
-            <a class="btn btn-secondary" href="https://www.facebook.com/sharer/sharer.php?u=https://breathingcycles.com/en/" target="_blank">Share on Facebook</a>
-            <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https://breathingcycles.com/en/&text=Free breathing music for calm and balance at Breathing Cycles" target="_blank">Share on X / Twitter</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https://breathingcycles.com/en/" target="_blank">Share on LinkedIn</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?text=Discover Breathing Cycles – free music for calm, focus and sleep: https://breathingcycles.com/en/" target="_blank">Share on WhatsApp</a>
-            <a class="btn btn-secondary" href="mailto:?subject=Discover Breathing Cycles&body=Free music for calm and focus: https://breathingcycles.com/en/" target="_blank">Share by email</a>
+          <h3>Share</h3>
+          <p>Help someone discover breathing music for calm and focus.</p>
+          <div class="share-actions" style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+            <a class="btn btn-secondary" href="https://www.facebook.com/sharer/sharer.php?u=https://breathingcycles.com" target="_blank">Share on Facebook</a>
+            <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https://breathingcycles.com&text=Free+breathing+music+for+calm,+focus+and+balance:+Breathing+Cycles" target="_blank">Share on X / Twitter</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https://breathingcycles.com" target="_blank">Share on LinkedIn</a>
+            <a class="btn btn-secondary" href="mailto:?subject=Discover Breathing Cycles&body=Free music for calm and focus at https://breathingcycles.com" target="_blank">Share via Email</a>
           </div>
-          <p class="donation-heading">Want to contribute financially?</p>
-          <p class="donation-note"><a class="btn btn-primary" href="https://paypal.me/oyvindblikstad" target="_blank">Donate now</a></p>
         </div>
 
         <div class="card">
-          <h3>Breathing Cycles Pro</h3>
-          <p>Planned membership for deeper practice and exclusive content.</p>
-          <ul class="muted-list">
-            <li>Live sessions and Q&amp;A</li>
-            <li>Downloadable tracks and guides</li>
-            <li>Resources for therapists and educators</li>
-          </ul>
-          <p class="donation-note" style="text-align:left;">Interested? <a href="mailto:oyvindblikstad@gmail.com">Email Øyvind</a> for early access.</p>
-          <p class="muted-note">(Not yet active.)</p>
+          <h3>Contribute</h3>
+          <p>Support new releases and educational resources.</p>
+          <p><a class="btn btn-primary" href="https://paypal.me/oyvindblikstad" target="_blank">Donate</a></p>
         </div>
 
         <div class="card">
-          <h3>For Schools &amp; Organizations</h3>
-          <p>Custom programs for educational institutions, teams, and companies working on calm and resilience.</p>
-          <ul class="muted-list">
-            <li>Workshops and training for staff</li>
-            <li>Integration into existing curriculum</li>
-            <li>Simple tools to measure impact</li>
-          </ul>
-          <p class="donation-note" style="text-align:left;">Contact <a href="mailto:oyvindblikstad@gmail.com">Øyvind</a> to get started.</p>
-          <p class="muted-note">(Not yet active.)</p>
+          <h3>For Schools & Organizations</h3>
+          <p>No active service yet – but reach out and let’s see what’s possible.</p>
+          <p>Contact <a href="mailto:oyvindblikstad@gmail.com">Øyvind</a>.</p>
         </div>
-      </div>
-
-      <div class="support-follow">
-        <a href="https://www.facebook.com/breathingcycles" target="_blank" class="btn btn-secondary">Follow on Facebook</a>
       </div>
     </div>
   </section>
 
   <!-- MANIFEST -->
   <section class="section" id="manifest">
-    <div class="container" style="text-align:center; max-width:800px;">
-      <p style="font-size:1.1rem; color:#355c64; line-height:1.8; font-style:italic;">
-        “Dear world, thank you for the challenges you gave me.<br>
-        Together with my education and today’s technology, I can now give this back.<br>
-        I hope with all my heart that many will find peace, strength and meaning through this tool.”
+    <div class="container" style="text-align:center;max-width:800px;">
+      <p style="font-size:1.1rem;color:#355c64;line-height:1.8;font-style:italic;">
+        “Dear world, thank you for the challenges I was given.<br>
+        Together with my education and today’s technology, I can give this back.<br>
+        I hope from my heart that many find peace, strength and meaning through this tool.”
       </p>
-      <p style="margin-top:10px; color:#6b8b91;">– Øyvind Blikstad</p>
+      <p style="margin-top:10px;color:#6b8b91;">– Øyvind Blikstad</p>
     </div>
   </section>
 </main>
@@ -544,28 +353,29 @@
 <footer>
   <div class="container">
     <p>&copy; 2025 Breathing Cycles</p>
-    <p>Created by <a href="https://obliks.wixsite.com/breathingcycles/about" target="_blank">Øyvind Blikstad Music Lab</a></p>
+    <p>Created by <a href="https://obliks.wixsite.com/breathingcycles/about" target="_blank" style="color:#e9fbff;text-decoration:underline;">Øyvind Blikstad Music Lab</a></p>
     <p>
-      <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO" target="_blank">Spotify</a> • 
-      <a href="https://www.facebook.com/breathingcycles" target="_blank">Facebook</a> • 
-      <a href="mailto:oyvindblikstad@gmail.com">Contact</a>
+      <a href="https://open.spotify.com/artist/2TdFWWMN55ccSQvEtP92AO" target="_blank" style="color:#e9fbff;text-decoration:underline;">Spotify</a> • 
+      <a href="https://www.facebook.com/breathingcycles" target="_blank" style="color:#e9fbff;text-decoration:underline;">Facebook</a> • 
+      <a href="mailto:oyvindblikstad@gmail.com" style="color:#e9fbff;text-decoration:underline;">Contact</a>
     </p>
   </div>
 </footer>
 
-<!-- JS identical to Norwegian version for toggles and auto-language -->
 <script>
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded",()=>{
   document.querySelectorAll(".toggle-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
       const parent=btn.closest(".expandable-text");
       const hidden=parent.querySelector(".hidden-text");
       const expanded=btn.getAttribute("aria-expanded")==="true";
       hidden.style.display=expanded?"none":"block";
-      btn.textContent=expanded?"Read more":"Show less";
+      btn.textContent=expanded?"Read more":"Read less";
       btn.setAttribute("aria-expanded",!expanded);
     });
   });
 });
 </script>
-<!-- END ENGLISH VERSION -->
+
+</body>
+</html>
